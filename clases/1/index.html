@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Clase 1 - Desarrollo web</title>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="output.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark-dimmed.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+    </head>
+    <body class="text-stone-800" style="font-family: 'Inter', sans-serif;">
+        <header class="flex flex-row justify-between p-2 border-b
+            border-stone-400"
+        >
+            <div class="flex flex-col gap-1 bg-white opacity-90">
+                <span style="font-family: 'source code pro', monospace;"
+                    class="text-blue-600 text-2xl" 
+                >
+                    &lt;DesarrolloWeb &#47;&gt
+                </span>
+                <span class="font-normal">
+                    &rsaquo; <span class="font-semibold">Clase 1</span>
+                </span>
+            </div>
+        </header>
+        <article class="flex flex-col bg-white w-full min-h-screen py-4 px-4 md:px-40 
+            gap-10 md:text-lg">
+            <section class="flex flex-col gap-2 bg-stone-50 p-2 rounded border 
+                border-stone-200">
+                <h2 class="text-2xl font-bold">
+                    &rsaquo; Indice de contenidos
+                </h2>
+                <ol class="list-inside list-decimal text-stone-600">
+                        <li>
+                            <a href="#esquema_cliente_servidor" 
+                                class=" hover:text-blue-600"
+                            >
+                                Esquema cliente-servidor
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tipos_sitio_web"
+                                class=" hover:text-blue-600"
+                            >
+                                Tipos de sitio web
+                            </a>
+                        </li>
+                        <ol class="ml-5 list-inside list-decimal">
+                            <li>
+                                <a href="#sitios_estaticos"
+                                    class=" hover:text-blue-600"
+                                >
+                                    Sitios estaticos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#sitios_dinamicos"
+                                    class=" hover:text-blue-600"
+                                >
+                                    Sitios dinamicos
+                                </a>
+                            </li>
+                        </ol>
+                        <li>
+                            <a href="#archivos_webapp"
+                                class=" hover:text-blue-600"
+                            >
+                                Archivos en una aplicacion web
+                            </a>
+                        </li>
+                        <ol class="ml-5 list-inside list-decimal">
+                            <li>
+                                <a href="#estructura_sitio"
+                                    class=" hover:text-blue-600"
+                                >
+                                    Estructura del sitio
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#html_css_js"
+                                    class=" hover:text-blue-600"
+                                >
+                                    Archivos HTML, CSS y Javascript
+                                </a>
+                            </li>
+                        </ol>
+                </ol>
+            </section>
+            <section class="flex flex-col gap-2">
+                <h2 id="esquema_cliente_servidor" 
+                    class="text-2xl font-bold">
+                    1. Esquema cliente-servidor
+                </h2>
+                <p>
+                    Los navegadores web se comunican con los 
+                    servidores web usando HTTP
+                    (Hyper Text Transfer Protocol) en Español 
+                    (Protocolo de transferencia de hipertexto).
+                    HTTP es un protocolo para buscar recursos como por ejemplo,
+                    documentos HTML. Es la base de cualquier intercambio de datos en 
+                    la Web y sigue un esquema de tipo cliente-servidor.
+                    Lo que significa que las solicitudes se inician en el receptor,
+                    usualmente un navegador web.
+                </p>
+                <p>
+                    Los clientes y los servidores se comunican intercambiando 
+                    mensajes individuales. Estos mensajes son enviados por el cliente 
+                    y se llaman solicitudes (requests), y los mensajes enviados por 
+                    el servidor son llamados respuestas (responses).
+                </p>
+                <figure class="self-center flex flex-col">
+                    <img alt="Esquema cliente servidor"
+                        class="w-3/4 self-center"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Client-server-model.svg/1024px-Client-server-model.svg.png"
+                    />
+                    <figcaption class="text-right">
+                        Fig. 1 - Esquema cliente servidor.
+                    </figcaption>
+                </figure>
+                <p>
+                    Cuando clickeas en un link en una pagina web, envias un formulario o
+                    haces una busqueda, el navegador envia una peticion HTTP a un servidor.
+                </p>
+                <p>
+                    Esta peticion incluye:
+                    <ul class="flex flex-col list-disc list-inside">
+                        <li>
+                            Una URL que identifica el servidor y el recurso 
+                            (por ejemplo: un archivo HTML)
+                        </li>
+                        <li>
+                            Un metodo que define que accion se requiere. (ejemplo: 
+                            obtener un archivo, guardar o actualizar datos).
+                            <p>Algunos de los verbos HTTP posibles son:</p>
+                            <ul class="flex flex-col list-disc ml-10">
+                                <li>
+                                    <span class="bg-blue-100 hover:bg-blue-200 font-semibold rounded"
+                                        style="font-family: 'Source Code Pro', monospace;">
+                                    GET</span>: Para obtener un recurso especifico.
+                                </li>
+                                <li>
+                                    <span class="bg-blue-100 hover:bg-blue-200 font-semibold rounded"
+                                        style="font-family: 'Source Code Pro', monospace;">
+                                    POST</span>: Para crear un nuevo recurso.
+                                </li>
+                                <li>
+                                    <span class="bg-blue-100 hover:bg-blue-200 font-semibold rounded"
+                                        style="font-family: 'Source Code Pro', monospace;">
+                                    PUT</span>: Actualizar un recurso existente
+                                </li>
+                                <li>
+                                    <span class="bg-blue-100 hover:bg-blue-200 font-semibold rounded"
+                                        style="font-family: 'Source Code Pro', monospace;">
+                                    DELETE</span>: Eliminar un recurso especifico.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    La peticion HTTP tambien puede incluir informacion adicional
+                    codificada en la URL (query string), datos asociados a 
+                    un verbo POST y datos asociados a cookies.
+                </p>
+                <p>
+                    Los servidores web responden a las peticiones de los clientes, 
+                    las procesan y les dan una respuesta HTTP.
+                    Esta respuesta contiene un estado (status) indicando si la 
+                    solicitud fue exitosa o no. (Por ejemplo, el codigo de estado
+                    <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Status/200"
+                        class="text-blue-600 hover:text-blue-500"
+                    >200 OK
+                    </a>, indica que todo salio bien, mientras que un 
+                    estado <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Status/404"
+                        class="text-blue-600 hover:text-blue-500"
+                    >404 Not found</a>, 
+                    indica que el recurso no pudo ser encontrado).
+                </p>
+                <p>
+                    El cuerpo (body) de una respuesta exitosa contiene el 
+                    recurso solicitado. (ej: una pagina HTML, o una imagen), la 
+                    cual sera mostrada en el navegador.
+                </p>
+                </section>
+                <section class="flex flex-col gap-2">
+                    <h3 id="tipos_sitio_web" class="text-2xl font-bold">
+                       2. Tipos de sitio web
+                    </h3>
+                    <section>
+                        <h4 id="sitios_estaticos" class="text-xl font-bold">
+                            2.1. Sitios estaticos
+                        </h4>
+                        <p>
+                            Un sitio estatico es aquel que siempre devuelve
+                            el mismo contenido "hard-codeado" desde el servidor 
+                            cuando se solicita un mismo recurso (Fig. 1). 
+                            Cuando un usuario navega a una pagina, el navegador 
+                            envia una solicitud HTTP GET a una URL especifica.
+                        </p>
+                        <p>
+                            El servidor retorna el documento solicitado de su 
+                            sistema de archivos, junto con una respuesta HTTP
+                            que contiene el documento y su respectivo status HTTP.
+                        </p>
+                        <figure class="self-center flex flex-col">
+                            <img alt="Servidor estatico"
+                                class="w-3/4 self-center"
+                                src="https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction/basic_static_app_server.png"
+                            />
+                            <figcaption class="text-right">
+                                Fig. 2 - Servidor web estatico.
+                            </figcaption>
+                        </figure>
+                    </section>
+                    <section>
+                        <h4 id="sitios_dinamicos" class="text-xl font-bold">
+                            2.2. Sitios dinamicos
+                        </h4>
+                        <p>
+                            En un sitio dinamico el contenido de la respuesta se 
+                            genera de forma dinamica (valga la redundancia). 
+                            Las paginas HTML normalmente se crean insertando datos 
+                            desde una base de datos dentro de plantillas HTML (templates). 
+                            Esta es una forma mucho mas eficiente de guardar una 
+                            gran cantidad de contenido que usando sitios estaticos.
+                        </p>
+                        <p>
+                            Un sitio dinamico puede retornar distintos datos para 
+                            una URL basada en la informacion del usuario y puede 
+                            realizar otras operaciones como parte de la respuesta
+                            (por ejemplo: enviar notificaciones).
+                        </p>
+                        <p>
+                            El esquema a continuacion muestra la interaccion tipica de 
+                            un sitio dinamico.
+                            Las solicitudes del navegador (1) son interpretadas 
+                            por el servidor (2), se obtiene la informacion requerida 
+                            en la base de datos (3) y se combina con plantillas HTML (4)
+                            para luego enviar la respuesta que contiene el 
+                            HTML generado (5, 6).
+                        </p>
+                        <figure class="self-center flex flex-col">
+                            <img alt="Servidor dinamico"
+                                src="https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction/web_application_with_html_and_steps.png"
+                                class="w-3/4 self-center"
+                            />
+                            <figcaption class="text-right">
+                                Fig. 3 - Servidor web dinamico.
+                            </figcaption>
+                        </figure>
+                    </section>
+            </section>
+
+            <section class="flex flex-col gap-2">
+                <h2 id="archivos_webapp" class="text-2xl font-bold">3. Archivos en una aplicacion web</h2>
+                <p>
+                    Un sitio web consiste de distintos archivos: texto, codigo,
+                    hojas de estilo (css), contenido multimedia (imagenes, videos),
+                    entre otras.
+                </p>
+                <p>
+                    Para crear un sitio es necesario que estos archivos se 
+                    estructuren de forma que puedan comunicarse entre si.
+                    Cuando creamos una pagina web en nuestra computadora local,
+                    debemos mantener todos los archivos en un mismo directorio. 
+                </p>
+                <section class="flex flex-col gap-2">
+                    <h3 id="estructura_sitio" class="text-xl font-bold">
+                        3.1. Estructura del sitio
+                    </h3>
+                    <p>
+                        Los archivos mas comunes que tendremos en cualquier 
+                        proyecto de pagina web son un archivo index HTML (.html),
+                        carpetas que contengan imagenes (.png, .jpg), 
+                        archivos CSS (.css) y archivos Javascript (.js).
+                    </p>
+                    <p>
+                        Creemos una pagina simple de ejemplo para poder ver 
+                        como interactuan cada uno de estos:
+                    </p>
+                    <p>
+                        Vamos a crear un archivo
+                        <span class="bg-blue-100 hover:bg-blue-200 font-semibold rounded"
+                            style="font-family: 'Source Code Pro', monospace;">
+                            index.html</span> basico para empezar a familiarizarnos 
+                        con esta estructura.
+                    </p>
+                    <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+    &lt;head&gt;
+        &lt;title&gt;Mi primer pagina&lt;/title&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        &lt;link href="style.css" rel="stylesheet"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        Hello world!
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    <p>
+                        Vamos a hacer la prueba de crear este archivo con 
+                        algun editor de texto. Nosotros recomendamos 
+                        <a href="https://code.visualstudio.com/"
+                            class="text-blue-600 hover:text-blue-500"
+                        >Visual Studio Code</a>, pero pueden utilizar cualquiera de 
+                        su preferencia.
+                    </p>
+                    <ol class="list-inside list-decimal">
+                        <li>
+                            Instalar 
+                            <a href="https://code.visualstudio.com/"
+                                class="text-blue-600 hover:text-blue-500"
+                            >Visual Studio Code</a>
+                        </li>
+                        <li>
+                            Crear una carpeta llamada 
+                            <span class="bg-blue-100 hover:bg-blue-200 font-semibold rounded">hello-world</span>
+                        </li>
+                        <li>
+                            Abrir la carpeta creada en Visual Studio Code
+                        </li>
+                        <li>
+                            Crear un archivo llamado
+                            <span class="bg-blue-100 hover:bg-blue-200 font-semibold rounded">index.html</span>
+                            y pegar el codigo html mostrado anteriormente.
+                        </li>
+                        <li>
+                            Abrir el archivo 
+                            <span class="bg-blue-100 hover:bg-blue-200 font-semibold rounded">index.html</span>
+                            con un navegador web (eg: Google Chrome, Mozilla Firefox)
+                        </li>
+                    </ol>
+                    <figure class="self-center">
+                        <img alt="Ejemplo hello world"
+                        src="images/helloworld.png" class="w-min" />
+                        <figcaption class="text-right">
+                            Fig. 4 - Ejemplo Hello World.
+                        </figcaption>
+                    </figure>
+                </section>
+                <section class="flex flex-col gap-2">
+                    <h3 id="html_css_js" class="text-xl font-bold">
+                        3.2. Archivos HTML, CSS y Javascript
+                    </h3>
+                    <p>
+                        Estos 3 archivos son los pilares fundamentales de 
+                        todo sitio web. 
+                    </p>
+                    <p>
+                        HTML (HyperText Markup Language) es el codigo que se 
+                        utiliza para estructurar la pagina web y su contenido.
+                        Por ejemplo, el contenido puede estar estructurado en un 
+                        conjunto de parrafos, una lista de items, imagenes, 
+                        tablas. 
+                    </p>
+                    <p>
+                        CSS (Cascading Style Sheets) es el codigo que le da 
+                        el estilo al sitio web. Algunas de las cosas que podemos 
+                        hacer con CSS, pueden ser: cambiar colores del fondo o texto,
+                        alinear el contenido, cambiar tamaño de imagenes, etc.
+                    </p>
+                    <!--  diferencia entre markup lang y prog lang -->
+                    <p>
+                        Javascript es un lenguaje de programacion que permite 
+                        agregar interactividad a una pagina web. Por ejemplo, 
+                        en el comportamiento de un boton al ser clickeado, o 
+                        el ingreso de datos en un formulario. Tambien con 
+                        estilos dinamicos, por ejemplo cambiar el color de un 
+                        enlace cuando ponemos el mouse encima, o una animacion.
+                    </p>
+                </section>
+            </section>
+        </article>
+        <footer class="flex flex-row justify-between p-4 border-t
+            border-stone-400"
+        >
+            M. Emilia Moyano, Ignacio M. Citate Gomez
+        </footer>
+    </body>
+</html>
