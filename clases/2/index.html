@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Clase 2 - Desarrollo web</title>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="../output.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark-dimmed.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+    </head>
+    <body class="text-stone-800" style="font-family: 'Inter', sans-serif;">
+        <header class="flex flex-row justify-between p-2 border-b
+            border-stone-400"
+        >
+            <div class="flex flex-col gap-1 bg-white opacity-90">
+                <span style="font-family: 'source code pro', monospace;"
+                    class="text-blue-600 text-2xl" 
+                >
+                    &lt;DesarrolloWeb &#47;&gt
+                </span>
+                <span class="font-normal">
+                    &rsaquo; <span class="font-semibold">Clase 2</span>
+                </span>
+            </div>
+        </header>
+        <article class="flex flex-col bg-white w-full min-h-screen py-4 px-4 md:px-40 
+            gap-10 md:text-lg">
+            <section class="flex flex-col gap-2 bg-stone-50 p-2 rounded border 
+                border-stone-200">
+                <h2 class="text-2xl font-bold">
+                    &rsaquo; Indice de contenidos
+                </h2>
+                <ol class="list-inside list-decimal text-stone-600">
+                        <li>
+                            <a href="#navegadores_web" 
+                                class=" hover:text-blue-600"
+                            >
+                                Navegadores web
+                            </a>
+                        </li>
+                </ol>
+            </section>
+            <section class="flex flex-col gap-2">
+                <h2 id="navegadores_web" 
+                    class="text-2xl font-bold">
+                    1. Navegadores web
+                </h2>
+                <p>
+                    Un navegador web es una aplicacion que sirve para acceder 
+                    a sitios web. Cuando un usuario ingresa a una pagina web, el
+                    navegador trae los archivos de esta pagina desde un servidor
+                    web, y los muestra en pantalla.
+                    Los navegadores web pueden ser utilizados en diferentes 
+                    dispositivos como computadoras, celulares y tablets. 
+                </p>
+                <p>
+                    Para que todos los navegadores web interpreten el contenido 
+                    de la misma manera, se crearon los 
+                    <a href="https://www.w3.org/standards/"
+                        class="text-blue-600 hover:text-blue-500"
+                    >
+                        "estandares web"
+                    </a> (web standards). 
+                    Son una serie de especificaciones tecnicas, que detallan
+                    como deberian funcionar las tecnologias web. 
+                    Uno de los aspectos clave de los estandares web es que 
+                    son abiertos para su uso y contribucion. Por lo tanto, 
+                    cualquier persona puede programar un sitio web de forma gratuita.
+                    Esto tambien significa que ninguna empresa puede tomar el control 
+                    de estos estandares.
+                </p>
+                <p>
+                    Los
+                    <a href="https://developer.mozilla.org/es/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL"
+                        class="text-blue-600 hover:text-blue-500">
+                        hipervinculos
+                    </a>
+                    (links) son los que permiten a los 
+                    usuarios navegar hacia distintas paginas al hacer click sobre 
+                    ellos. 
+                </p>
+                <p>
+                    El hipertexto es texto que contiene hipervinculos, y 
+                    HTML (Lenguaje de marcado de hipertexto) nos permite 
+                    describir una pagina web que contiene hipertexto.
+                </p>
+                <p>
+                Cada pagina web tiene una 
+                <a href="https://developer.mozilla.org/es/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL"
+                    class="text-blue-600 hover:text-blue-500">
+                    URL
+                </a> (Uniform Resource Locator) 
+                    unica, tambien conocida como direccion web, que especifica 
+                    la ubicacion de la misma en una red de computadoras.
+                    Por ejemplo:
+                    <a href="https://www.google.com"
+                        class="text-blue-600 hover:text-blue-500"
+                    >
+                        https://www.google.com
+                    </a>
+                    es la URL que apunta a la pagina principal de el buscador 
+                    de Google.
+                </p>
+                <p>
+                    Los sitios web guardan informacion en archivos llamados 
+                    <a href="https://developer.mozilla.org/es/docs/Glossary/Cookie"
+                        class="text-blue-600 hover:text-blue-500">
+                        cookies 🍪.
+                    </a>
+                    Estos se guardan en tu computadora para la 
+                    proxima vez que visites el sitio. Por ejemplo, cuando una
+                    pagina web recuerda tu usuario y contraseña esta utilizando 
+                    una cookie.
+                </p>
+            </section>
+            <section>
+                <h2 id="multiplataforma"
+                    class="text-2xl font-bold">
+                    2. Concepto de Multiplataforma
+                </h2>
+                <p>
+                    El termino plataforma se puede referir a un sistema operativo o
+                    un hardware especifico. En el caso de la web, la plataforma es el 
+                    navegador web. 
+                    Una pagina, programa o software multiplataforma es aquella que puede 
+                    funcionar en distintas plataformas sin necesidad de cambiar el codigo 
+                    para que funcione en alguna en especifico.
+                </p>
+                <p class="bg-blue-50 p-2 text-blue-800">
+                    Las paginas y aplicaciones web son multiplataforma dado que funcionan 
+                    en distintos navegadores (Google Chrome, Mozilla Firefox, Opera) y dispositivos
+                    (smartphone, escritorio, tablet, smart TV). 
+                </p>
+                <p>
+                    Esta es una gran ventaja, a favor de las aplicaciones web, ya que 
+                    permiten que el desarrollador mantenga un mismo codigo, para varias 
+                    plataformas. Por ejemplo, en el caso de las aplicaciones nativas, como 
+                    Spotify, usualmente poseen diferentes versiones de la misma aplicacion 
+                    para ser compatible con todos los dispositivos (Android, iOS, Windows, Mac, 
+                    Linux, etc).
+                </p>
+            </section>
+            <section class="flex flex-col gap-2">
+                <h2 id="dev_tools" 
+                    class="text-2xl font-bold">
+                    3. Developer Tools
+                </h2>
+                <p>
+                    Los navegadores suelen tener herramientas para que los 
+                    desarrolladores web puedan inspeccionar sus paginas. 
+                </p>
+                <p>
+                    Por ejemplo, podemos observar el HTML, reglas de 
+                    CSS que están siendo aplicadas. Así como también debuggear 
+                    Javascript, ver las cookies, y visualizar la página con 
+                    el tamaño de pantalla de diferentes dispositivos.
+                </p>
+                <p>
+                    Vamos a abrir los Dev Tools en Google Chrome.
+                    Para ello, hay que presionar la tecla 
+                    <span class="bg-blue-100 hover:bg-blue-200 font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        F12
+                    </span>
+                </p>
+                <p>
+                    En la Fig.1 se puede observar esta misma pagina con 
+                    los Dev tools abiertos en Google Chrome.
+                    En los distintos puntos se observa:
+                </p>
+                <ol class="list-decimal list-inside">
+                    <li>
+                        <strong>Seccion de HTML</strong>: se puede expandir cada elemento de HTML 
+                        y se resaltara en el navegador. Tambien, es posible realizar 
+                        cambios (temporales) sobre la misma pagina.
+                        Esto tambien se puede hacer con click derecho -> 
+                        "Inspeccionar elemento".
+                    </li>
+                    <li>
+                        <strong>Seccion de CSS</strong>: se muestran los 
+                        estilos aplicados al elemento seleccionado en la 
+                        seccion de HTML. Como en el caso anterior, tambien
+                        se pueden modificar para ver los cambios en el momento.
+                    </li>
+                    <li>
+                        <strong>Modo responsive</strong>: es posible seleccionar 
+                        los diferentes tamaños de pantalla para cada dispositivo.
+                        Hay diferentes opciones como celular y tablet.
+                    </li>
+                </ol>
+                <p class="bg-blue-50 p-2 text-blue-800">
+                    El termino "responsive" o "diseño responsive" se refiere 
+                    a una pagina que se ajusta a los diferentes tamaños de 
+                    pantalla.
+                </p>
+                <figure class="self-center flex flex-col">
+                    <img alt="Chrome Developer tools"
+                        class="w-3/4 self-center"
+                        src="images/devtools.png"
+                    />
+                    <figcaption class="text-right">
+                        Fig. 1 - Chrome Dev Tools.
+                    </figcaption>
+                </figure>
+            </section>
+            <section class="flex flex-col gap-2">
+                <h2 id="mobile_first" 
+                    class="text-2xl font-bold">
+                    4. Mobile first
+                </h2>
+                <p>
+                    Mobile first es una metodologia de diseño que sugiere que 
+                    el desarrollador trabaje primero en la interfaz movil (que 
+                    tiene un tamaño de pantalla mas pequeño) y luego se encargue 
+                    de realizar los cambios necesarios para adaptarlo a tamaños 
+                    de pantalla mas grandes como un monitor o TV.
+                </p>
+                <p>
+                    El fundamento detras de esto, es que es mucho mas dificil 
+                    adaptar una pagina diseñada para un tamaño grande a ajustarse 
+                    a un tamaño muy pequeño. Por ende, resulta conveniente 
+                    construir el diseño de forma progresiva de mas pequeño a 
+                    mas grande.
+                </p>
+            </section>
+        </article>
+        <footer class="flex flex-row justify-between p-4 border-t
+            border-stone-400"
+        >
+            M. Emilia Moyano, Ignacio M. Citate Gomez
+        </footer>
+    </body>
+</html>
