@@ -42,6 +42,43 @@
                                 Navegadores web
                             </a>
                         </li>
+                        <ol class="list-inside list-decimal ml-5 text-stone-600">
+                            <li>
+                                <a href="#funcionalidad_navegador" 
+                                    class=" hover:text-blue-600"
+                                >
+                                    Funcionalidad del navegador
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#componentes_navegador" 
+                                    class=" hover:text-blue-600"
+                                >
+                                    Componentes del navegador
+                                </a>
+                            </li>
+                        </ol>
+                        <li>
+                            <a href="#multiplataforma" 
+                                class=" hover:text-blue-600"
+                            >
+                                Concepto de multiplataforma
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#dev_tools" 
+                                class=" hover:text-blue-600"
+                            >
+                                Developer tools
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#mobile_first" 
+                                class=" hover:text-blue-600"
+                            >
+                                Mobile first
+                            </a>
+                        </li>
                 </ol>
             </section>
             <section class="flex flex-col gap-2">
@@ -116,6 +153,101 @@
                     pagina web recuerda tu usuario y contraseña esta utilizando 
                     una cookie.
                 </p>
+                <section class="flex flex-col gap-2">
+                    <h2 id="funcionalidad_navegador" 
+                        class="text-xl font-bold">
+                        1.1 Funcionalidad de un navegador
+                    </h2>
+                    <p>
+                        La funcion principal de un navegador es el de presentar 
+                        el recurso web elegido al usuario, mediante una solicitud 
+                        al servidor web correspondiente.
+                    </p>
+                    <p>
+                        Este recurso es usualmente un documento HTML, pero 
+                        tambien puede ser un archivo PDF, una imagen, un video 
+                        u otro tipo de contenido.
+                    </p>
+                    <p>
+                        La forma en la que el navegador interpreta y muestra 
+                        los archivos HTML y CSS se encuentra especificado en 
+                        las especificaciones de la 
+                        <a href="https://www.w3.org/standards/"
+                            class="text-blue-600 hover:text-blue-500"
+                        >
+                            W3C 
+                        </a>
+                        (World Wide Web Consortium).
+                    </p>
+                </section>
+                <section class="flex flex-col gap-2">
+                    <h2 id="componentes_navegador" 
+                        class="text-xl font-bold">
+                        1.2 Componentes de un navegador 
+                    </h2>
+                    Los componentes principales de un navegador son:
+                    <ol class="list-inside list-decimal">
+                        <li>
+                            <strong>Interfaz de usuario</strong>:
+                            esto incluye la barra de direcciones, los botones 
+                            de atras y adelante, el menu de favoritos, etc.
+                        </li>
+                        <li>
+                            <strong>Motor del navegador</strong>:
+                            Se encarga de comunicar las acciones entre 
+                            la interfaz de usuario y el motor de renderizado.
+                        </li>
+                        <li>
+                            <strong>Motor de renderizado</strong>:
+                            Se encarga de mostrar el contenido solicitado.
+                            Transformar los documentos HTML, CSS y 
+                            otros recursos de una pagina web en una representacion 
+                            visual interactiva en el dispositivo del usuario.
+                        </li>
+                        <li>
+                            <strong>Redes</strong>:
+                            Se encarga de realizar solicitudes de red (Internet) 
+                            como las solicitudes HTTP, utilizando diferentes 
+                            implementaciones para diferentes plataformas detras 
+                            de una interfaz independiente de la plataforma 
+                            en cuestion.
+                        </li>
+                        <li>
+                            <strong>UI Backend</strong>:
+                            Se utiliza para dibujar los elementos basicos como 
+                            ventanas, botones e inputs de usuario. Este 
+                            backend expone una interfaz generica que no es 
+                            especifica a la plataforma. Detras de escenas 
+                            utiliza la interfaz de usuario del sistema operativo.
+                        </li>
+                        <li>
+                            <strong>Interprete Javascript</strong>:
+                            Se utiliza para parsear y ejecutar codigo Javascript.
+                        </li>
+                        <li>
+                            <strong>Almacenamiento de datos</strong>:
+                            Es una capa de persistencia. El navegador necesita 
+                            guardar datos de forma local, como las cookies. Tambien 
+                            existen otros tipos de almacenamiento como localStorage,
+                            IndexedDB, WebSQL y FileSystem.
+                        </li>
+                    </ol>
+                <p class="bg-blue-50 p-2 text-blue-800 my-2">
+                        Los navegadores como Google Chrome suelen 
+                        utilizar varias instancias del motor de renderizado,
+                        uno para cada pestaña. Cada pestaña se ejecuta en 
+                        un proceso diferente.
+                    </p>
+                    <figure class="self-center flex flex-col">
+                        <img alt="Componentes del navegador web"
+                            class="w-3/4 self-center"
+                            src="images/componentes-navegador.png"
+                        />
+                        <figcaption class="text-right">
+                            Fig. 1 - Componentes del navegador.
+                        </figcaption>
+                    </figure>
+                </section>
             </section>
             <section>
                 <h2 id="multiplataforma"
@@ -130,7 +262,7 @@
                     funcionar en distintas plataformas sin necesidad de cambiar el codigo 
                     para que funcione en alguna en especifico.
                 </p>
-                <p class="bg-blue-50 p-2 text-blue-800">
+                <p class="bg-blue-50 p-2 text-blue-800 my-2">
                     Las paginas y aplicaciones web son multiplataforma dado que funcionan 
                     en distintos navegadores (Google Chrome, Mozilla Firefox, Opera) y dispositivos
                     (smartphone, escritorio, tablet, smart TV). 
@@ -168,7 +300,7 @@
                     </span>
                 </p>
                 <p>
-                    En la Fig.1 se puede observar esta misma pagina con 
+                    En la Fig.2 se puede observar esta misma pagina con 
                     los Dev tools abiertos en Google Chrome.
                     En los distintos puntos se observa:
                 </p>
@@ -192,7 +324,7 @@
                         Hay diferentes opciones como celular y tablet.
                     </li>
                 </ol>
-                <p class="bg-blue-50 p-2 text-blue-800">
+                <p class="bg-blue-50 p-2 text-blue-800 my-2">
                     El termino "responsive" o "diseño responsive" se refiere 
                     a una pagina que se ajusta a los diferentes tamaños de 
                     pantalla.
@@ -203,7 +335,7 @@
                         src="images/devtools.png"
                     />
                     <figcaption class="text-right">
-                        Fig. 1 - Chrome Dev Tools.
+                        Fig. 2 - Chrome Dev Tools.
                     </figcaption>
                 </figure>
             </section>
