@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Clase 3 - Desarrollo web</title>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="../output.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark-dimmed.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+    </head>
+    <body class="text-stone-800" style="font-family: 'Inter', sans-serif;">
+        <header class="flex flex-row justify-between p-2 border-b
+            border-stone-400"
+        >
+            <div class="flex flex-col gap-1 bg-white opacity-90">
+                <span style="font-family: 'source code pro', monospace;"
+                    class="text-blue-600 text-2xl" 
+                >
+                    &lt;DesarrolloWeb &#47;&gt
+                </span>
+                <span class="font-normal">
+                    &rsaquo; <span class="font-semibold">Clase 3</span>
+                </span>
+            </div>
+        </header>
+        <article class="flex flex-col bg-white w-full min-h-screen py-4 px-4 md:px-40 
+            gap-10 md:text-lg">
+            <section class="flex flex-col gap-2 bg-stone-50 p-2 rounded border 
+                border-stone-200">
+                <h2 class="text-2xl font-bold">
+                    &rsaquo; Indice de contenidos
+                </h2>
+                <ol class="list-inside list-decimal text-stone-600">
+                        <li>
+                            <a href="#navegadores_web" 
+                                class=" hover:text-blue-600"
+                            >
+                                Navegadores web
+                            </a>
+                        </li>
+                </ol>
+            </section>
+            <section class="flex flex-col gap-2">
+                <h2 id="intro_html" 
+                    class="text-2xl font-bold">
+                    1. Introduccion a HTML
+                </h2>
+                <p>
+                    HTML (HyperText Markup Language) es el lenguaje de marcado
+                    estandar para describir la estructura de los documentos 
+                    de la web. HTML consiste de una serie de elementos y 
+                    atributos que se utilizan para "marcar" los componentes 
+                    de un documento para estructurarlo de una forma significativa.
+                </p>
+                <p>
+                    Los documentos HTML son basicamente un arbol de nodos, estos 
+                    nodos pueden ser de elementos HTML o texto. Los elementos 
+                    HTML le dan la semantica y el formato a los documentos. Permiten
+                    crear parrafos, listas, tablas, imagenes y formularios.
+                </p>
+                <div class="bg-blue-50 p-2 text-blue-800 my-2 flex flex-col gap-2
+                    rounded">
+                    <p>
+                        Un <strong>lenguaje de marcado</strong> (markup language) es una forma de 
+                        codificar un documento que, junto con el texto, incorpora 
+                        etiquetas o marcas que contienen informacion adicional acerca 
+                        de la estructura del texto o su presentacion.
+                    </p>
+                    <p>
+                        No confundir un lenguaje de marcado con un lenguaje de 
+                        programacion. Los lenguajes de marcado no tienen 
+                        funciones aritmeticas, variables ni logica.
+                    </p>
+                </div>
+            </section>
+            <section class="flex flex-col gap-2">
+                <h2 id="elementos" 
+                    class="text-2xl font-bold">
+                    2. Elementos 
+                </h2>
+                <p>
+                    HTML consiste de una serie de elementos que se utilizan 
+                    para encapsular diferentes partes del contenido para 
+                    que se vean o funcione de cierta forma.
+                    Estos elementos se escriben dentro de tags (etiquetas) 
+                    entre los simbolos
+                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        &lt;</span>
+                    y
+                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        &gt;</span>
+                </p>
+                <p>
+                    Para escribir un titulo principal (de nivel 1), 
+                    se utiliza el tag 
+                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        &lt;h1&gt;</span>
+                    . El titulo encerrado dentro de este, es el <strong>contenido</strong>
+                    del elemento. El elemento es la combinacion 
+                    del tag junto con el contenido.
+                </p>
+                <pre><code class="language-html">&lt;h1&gt;Este es el contenido&lt;/h1&gt;</code></pre>
+                <p>
+                    El contenido se escribe entre el tag de apertura y cerrado.
+                </p>
+                <figure class="self-center flex flex-col">
+                    <img alt="Elemento HTML"
+                        class="w-3/4 self-center"
+                        src="https://web-dev.imgix.net/image/kheDArv5csY6rvQUJDbWRscckLr1/oyFzeg8ttK57XMGuVNvG.png?auto=format&w=845"
+                    />
+                    <figcaption class="text-right">
+                        Fig. 1 - Elemento HTML.
+                    </figcaption>
+                </figure>
+            </section>
+        </article>
+        <footer class="flex flex-row justify-between p-4 border-t
+            border-stone-400"
+        >
+            M. Emilia Moyano, Ignacio M. Citate Gomez
+        </footer>
+    </body>
+</html>
