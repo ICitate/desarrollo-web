@@ -36,10 +36,40 @@
                 </h1>
                 <ol class="list-inside list-decimal text-stone-600">
                         <li>
-                            <a href="#navegadores_web" 
+                            <a href="#intro_html" 
                                 class=" hover:text-blue-600"
                             >
-                                Navegadores web
+                                Introduccion a HTML
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#elementos" 
+                                class=" hover:text-blue-600"
+                            >
+                                Elementos
+                            </a>
+                            <ol class="ml-5 list-inside list-decimal text-stone-600">
+                                    <li>
+                                        <a href="#tags_principales" 
+                                            class=" hover:text-blue-600"
+                                        >
+                                            Tags principales
+                                        </a>
+                                    </li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="#atributos" 
+                                class=" hover:text-blue-600"
+                            >
+                                Atributos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#estructura" 
+                                class=" hover:text-blue-600"
+                            >
+                                Estructura
                             </a>
                         </li>
                 </ol>
@@ -77,6 +107,7 @@
                     </p>
                 </div>
             </section>
+
             <section class="flex flex-col gap-2">
                 <h1 id="elementos" 
                     class="text-2xl font-bold">
@@ -305,13 +336,207 @@
                         <div class="flex flex-col py-2 border-b border-stone-300">
                             <span class="text-blue-700">Resultado:</span>
                             <img 
+                                class="w-1/2"
                                 src="https://shorturl.at/fnpK2"
                             />
                         </div>
                     </section>
+                    <section class="flex flex-col gap-2">
+                        <h3 id="headings" 
+                            class="text-lg font-bold">
+                            2.1.5
+                            <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                                font-semibold rounded"
+                                style="font-family: 'Source Code Pro', monospace;">
+                                &lt;div&gt;</span>
+                        </h3>
+                        <p>
+                            Es un contenedor generico para el contenido.
+                            No tiene ningun efecto sobre este hasta que 
+                            se le aplique un estilo con CSS.
+                        </p>
+                        <pre><code class="language-html">&lt;div&gt;
+    Contenido del div1
+    &lt;div style="background-color: #bfdbfe;"&gt;
+        Contenido del div2
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        <div class="flex flex-col py-2 border-b border-stone-300">
+                            <span class="text-blue-700">Resultado:</span>
+                            <div>
+                                Contenido del div1
+                                <div style="background-color: #bfdbfe;">
+                                    Contenido del div2
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <p>
+                        Estos son solo algunos de los tags mas utilizados. Mencionaremos 
+                        otros a lo largo del curso. Para ver todos los elementos 
+                        se puede consultar la 
+                        <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element" 
+                            class="text-blue-600 hover:text-blue-500"
+                        >
+                            Referencia de Mozilla
+                        </a>.
+                    </p>
                 </section>
+
+            <section class="flex flex-col gap-2">
+                <h1 id="atributos" 
+                    class="text-2xl font-bold">
+                    3. Atributos
+                </h1>
+                <p>
+                    Los atributos son valores adicionales que configuran los 
+                    elementos o ajustan su comportamiento de diversas formas 
+                    para cumplir los criterios de los usuarios.
+                </p>
+                <p>
+                    Solo aparecerán en los tags de apertura. 
+                    El elemento puede contener más de un atributo, y 
+                    son separados por espacios vacíos.
+                </p>
+                <figure class="self-center flex flex-col">
+                    <img alt="Atributos HTML"
+                        class="w-3/4 self-center"
+                        src="https://web-dev.imgix.net/image/kheDArv5csY6rvQUJDbWRscckLr1/IdGp51MB61yo6WDSRZZ3.png?auto=format&w=845"
+                    />
+                    <figcaption class="text-right">
+                        Fig. 2 - Atributos HTML.
+                    </figcaption>
+                </figure>
+                
+                <pre><code class="language-html">&lt;img src="https://shorturl.at/dlLY0" 
+    alt="pacman" 
+    id="pacman"
+/&gt;</code></pre>
+                <div class="py-2 border-b border-stone-300">
+                    <span class="text-blue-700">Resultado:</span>
+                    <img src="https://shorturl.at/dlLY0" alt="pacman" id="pacman" 
+                        class="w-1/2"
+                    />
+                </div>
+                <p>
+                    La imagen del ejemplo tiene 3 atributos: 
+                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        src</span>,
+                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        alt</span> y 
+                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        id</span>.
+                    Cada uno de ellos aportan informacion sobre el elemento, 
+                    en este caso la imagen.
+                </p>
             </section>
 
+            <section class="flex flex-col gap-2">
+                <h1 id="estructura" 
+                    class="text-2xl font-bold">
+                    4. Estructura 
+                </h1>
+                <p>
+                    La estructura de un documento HTML es la siguiente:
+                </p>
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es-AR"&gt;
+    &lt;head&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                <p>
+                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;"> 
+                    &lt;!DOCTYPE html&gt;</span>
+                    es 
+                    lo primero que se escribe en un documento HTML. No es un
+                    elemento HTML como tal, sino que un nodo especial llamado 
+                    "doctype". El doctype le dice al navegador que utilice el 
+                    <a href="https://developer.mozilla.org/es/docs/Web/HTML/Quirks_Mode_and_Standards_Mode" 
+                        class="text-blue-600 hover:text-blue-500"
+                    >
+                        "modo estandar"
+                    </a>.
+                </p>
+                <p>
+                    El elemento <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        &lt;html&gt;</span> es el elemento raiz de un documento
+                    HTML. Es decir, el padre de los elementos 
+                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        &lt;head&gt;</span>
+                    y 
+                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        &lt;body&gt;</span>.
+                </p>
+                <p>
+                    El elemento <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        &lt;body&gt;</span> tiene el contenido del documento.
+                </p>
+                <p>
+                    El elemento <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        &lt;head&gt;</span> provee informacion general (metadatos) acerca del
+                        documento, incluyendo su titulo y enlaces a scripts y a hojas de estilo (CSS).
+                </p>
+                <p>
+                    Lo primero que debemos declarar en el head es el <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                    font-semibold rounded"
+                    style="font-family: 'Source Code Pro', monospace;">
+                    &lt;charset&gt;</span>, el cual especifica la codificacion de caracteres (encoding).
+                </p>
+                <pre><code class="language-html">&lt;meta charset="UTF-8"&gt;</code></pre>
+                <p>
+                    En el ejemplo, elegimos la codificacion 
+                    <a href="https://developer.mozilla.org/es/docs/Glossary/UTF-8" 
+                                class="text-blue-600 hover:text-blue-500">
+                        UTF-8
+                    </a>
+                    la cual nos permite incluir los tildes, la ñ y hasta emojis 🎸.
+                </p>
+                <p>
+                    Por otro lado, cada una de las paginas debe tener un titulo unico.
+                    Este se mostrara en el tab del navegador, en el historial, en resultados de busqueda, etc.
+                </p>
+                <pre><code class="language-html">&lt;title&gt;Clase 3 - Desarrollo web&lt;/title&gt;</code></pre>
+                <p>
+                    Tambien debemos incluir los metadatos del viewport. 
+                    El siguiente tag nos sirve para que el contenido se adapte 
+                    al tamaño de la pantalla del dispositivo.
+                </p>
+                <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></pre>
+                <p>
+                    Finalmente, la estructura del documento HTML nos queda asi: 
+                </p>
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8" /&gt;
+        &lt;title&gt;Machine Learning Workshop&lt;/title&gt;
+        &lt;meta name="viewport" content="width=device-width" /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt!-- Contenido del documento --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </section>
         </article>
         <footer class="flex flex-row justify-between p-4 border-t
             border-stone-400"
