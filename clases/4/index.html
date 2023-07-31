@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Clase 4 - Desarrollo web</title>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="../output.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark-dimmed.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+    </head>
+    <body class="text-stone-800" style="font-family: 'Inter', sans-serif;">
+        <header class="flex flex-row justify-between p-2 border-b
+            border-stone-400"
+        >
+            <div class="flex flex-col gap-1 bg-white opacity-90">
+                <span style="font-family: 'source code pro', monospace;"
+                    class="text-blue-600 text-2xl" 
+                >
+                    &lt;DesarrolloWeb &#47;&gt
+                </span>
+                <span class="font-normal">
+                    &rsaquo; <span class="font-semibold">Clase 4</span>
+                </span>
+            </div>
+        </header>
+        <article class="flex flex-col bg-white w-full min-h-screen py-4 px-4 md:px-40 
+            gap-10 md:text-lg">
+            <section class="flex flex-col gap-2 bg-stone-50 p-2 rounded border 
+                border-stone-200">
+                <h1 class="text-2xl font-bold">
+                    &rsaquo; Indice de contenidos
+                </h1>
+                <ol class="list-inside list-decimal text-stone-600">
+                        <li>
+                            <a href="#links" 
+                                class=" hover:text-blue-600"
+                            >
+                                Links
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#listas" 
+                                class=" hover:text-blue-600"
+                            >
+                                Listas
+                            </a>
+                        </li>
+                </ol>
+            </section>
+            <section class="flex flex-col gap-2">
+                <h1 id="links" 
+                    class="text-2xl font-bold">
+                    1. Links
+                </h1>
+                <p>
+                    El Elemento HTML 
+                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        &lt;a&gt;</span>
+                    junto con su atributo 
+                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        href</span>,
+                    crea un enlace a otras páginas, archivos o ubicaciones dentro
+                    de la misma página, direcciones de correo, etc.
+                </p>
+                <p>
+                    Posee la siguiente sintaxis:
+                </p>
+                <pre><code class="language-html">&lt;a href="url" target="_self" &gt;
+    texto del link
+&lt;/a&gt;</code></pre>
+                
+                <section class="flex flex-col gap-2">
+                    <h2 id="target" 
+                        class="text-xl font-bold">
+                        1.1 Atributo href
+                    </h2>
+                    
+                </section>
+                <section class="flex flex-col gap-2">
+                    <h2 id="target" 
+                        class="text-xl font-bold">
+                        1.2 Atributo target
+                    </h2>
+                    <p>
+                        Por defecto, la página o archivo linkeado será mostrado en la ventana 
+                        actual en la que nos encontramos.
+                        Para cambiarlo, utilizaremos el atributo 
+                        <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                        font-semibold rounded"
+                        style="font-family: 'Source Code Pro', monospace;">
+                        target</span>
+                    </p>
+                    <p>Los valores permitidos por este atributo son:
+                        <ol class="list-inside">
+                            <li>
+                                <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                                    font-semibold rounded"
+                                    style="font-family: 'Source Code Pro', monospace;">
+                                    _self</span>: 
+                                    Valor por defecto. Carga la URL en la misma ventana/tab
+                                    de navegación actual.
+                            </li>
+                            <li>
+                                <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                                    font-semibold rounded"
+                                    style="font-family: 'Source Code Pro', monospace;">
+                                    _blank</span>: 
+                                    Carga la URL en un nuevo contexto de navegación.
+                                    Usualmente es una pestaña nueva, pero los usuarios pueden
+                                    configurar sus navegadores para que en vez de una pestaña, 
+                                    se abra una ventana.
+                            </li>
+                            <li>
+                                <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                                    font-semibold rounded"
+                                    style="font-family: 'Source Code Pro', monospace;">
+                                    _parent</span>: 
+                                    Carga la URL en el contexto de navegación padre del actual.
+                                    Si no existe el padre, se comporta igual que el modo 
+                                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                                    font-semibold rounded"
+                                    style="font-family: 'Source Code Pro', monospace;">
+                                    _self</span>.
+                            </li>
+                            <li>
+                                <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                                    font-semibold rounded"
+                                    style="font-family: 'Source Code Pro', monospace;">
+                                    _top</span>: 
+                                    Carga la URL en el contexto en el contexto más alto de navegación
+                                    (el cual es un ancestro del actual, y no tiene padre).
+                                    Si no existe el padre, se comporta igual que el modo 
+                                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                                    font-semibold rounded"
+                                    style="font-family: 'Source Code Pro', monospace;">
+                                    _self</span>.
+                            </li>
+                        </ol>
+                    </p>
+                </section>
+                
+            </section>
+
+            <section class="flex flex-col gap-2">
+                <h1 id="listas" 
+                    class="text-2xl font-bold">
+                    2. Listas
+                </h1>
+                <p>
+                    
+                </p>
+                <div class="bg-blue-50 p-2 text-blue-800 my-2 flex flex-col gap-2
+                    rounded">
+                    
+                </div>
+            </section>
+
+
+        </article>
+        <footer class="flex flex-row justify-between p-4 border-t
+            border-stone-400"
+        >
+            M. Emilia Moyano, Ignacio M. Citate Gomez
+        </footer>
+    </body>
+</html>
