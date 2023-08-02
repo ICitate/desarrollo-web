@@ -58,12 +58,12 @@
                 </h1>
                 <p>
                     El Elemento HTML 
-                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                    <span class="highlighted" 
                         font-semibold rounded"
                         style="font-family: 'Source Code Pro', monospace;">
                         &lt;a&gt;</span>
                     junto con su atributo 
-                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                    <span class="highlighted" 
                         font-semibold rounded"
                         style="font-family: 'Source Code Pro', monospace;">
                         href</span>,
@@ -82,7 +82,88 @@
                         class="text-xl font-bold">
                         1.1 Atributo href
                     </h2>
-                    
+                    <p>
+                        El atributo 
+                        <span class="highlighted" 
+                            font-semibold rounded"
+                            style="font-family: 'Source Code Pro', monospace;">
+                            href</span>
+                        especifica la direccion del hipervinculo, lo que 
+                        transforma al tag 
+                        <span class="highlighted" 
+                            font-semibold rounded"
+                            style="font-family: 'Source Code Pro', monospace;">
+                            &lt;a&gt;</span>
+                        en un link. El atributo href se puede usar para:
+                    </p>
+                    <ul class="list-inside list-disc">
+                        <li>
+                            Crear hipervinculos a otras paginas.
+                        </li>
+                        <li>
+                            Crear hipervinculos a localizaciones especificas 
+                            de una pagina.
+                        </li>
+                        <li>
+                            Descargar archivos.
+                        </li>
+                        <li>
+                            Enviar un email a una direccion especifica.
+                        </li>
+                    </ul>
+                    <pre><code class="language-html">&lt;a href="https://unnoba.edu.ar"&gt;
+    Pagina UNNOBA
+&lt;/a&gt;
+&lt;a href="https://unnoba.edu.ar"&gt;
+    &lt;img 
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Chain_link_icon_slanted.png/800px-Chain_link_icon_slanted.png"
+    /&gt;
+    Este link contiene una imagen
+&lt;/a&gt;
+&lt;a href="#links"&gt;
+    Seccion links de esta pagina
+&lt;/a&gt;
+&lt;a href="https://es.wikipedia.org/wiki/HTML#Elementos"&gt;
+    Wikipedia: HTML, seccion "Elementos"
+&lt;/a&gt;
+&lt;a href="mailto:memoyano@unnoba.edu.ar"&gt;
+    Enviar mail
+&lt;/a&gt;</code></pre>
+                    <div class="py-2 border-b border-stone-300">
+                        <span class="text-blue-700">Resultado:</span>
+                        <div class="flex flex-col gap-2 py-2">
+                            <a href="https://unnoba.edu.ar"
+                                class="text-blue-600 hover:text-blue-500"
+                            >
+                                Pagina UNNOBA
+                            </a>
+                            <a href="https://unnoba.edu.ar"
+                                class="text-blue-600 hover:text-blue-500 flex 
+                                flex-row gap-2 items-center"
+                            >
+                                <img 
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Chain_link_icon_slanted.png/800px-Chain_link_icon_slanted.png"
+                                    class="w-6"
+                                />
+                                Este link contiene una imagen
+                            </a>
+                            <a href="#links"
+                                class="text-blue-600 hover:text-blue-500"
+                            >
+                                Seccion links de esta pagina
+                            </a>
+                            <a href="https://es.wikipedia.org/wiki/HTML#Elementos"
+                                class="text-blue-600 hover:text-blue-500"
+                            >
+                                Wikipedia: HTML, seccion "Elementos"
+                            </a>
+                            <a href="mailto:memoyano@unnoba.edu.ar"
+                                class="text-blue-600 hover:text-blue-500"
+                            >
+                                Enviar mail
+                            </a>
+                        </div>
+                    </div>
                 </section>
                 <section class="flex flex-col gap-2">
                     <h2 id="target" 
@@ -93,60 +174,41 @@
                         Por defecto, la página o archivo linkeado será mostrado en la ventana 
                         actual en la que nos encontramos.
                         Para cambiarlo, utilizaremos el atributo 
-                        <span class="bg-blue-100 px-1 hover:bg-blue-200 
-                        font-semibold rounded"
-                        style="font-family: 'Source Code Pro', monospace;">
-                        target</span>
+                        <span class="highlighted">target</span>
                     </p>
                     <p>Los valores permitidos por este atributo son:
                         <ol class="list-inside">
                             <li>
-                                <span class="bg-blue-100 px-1 hover:bg-blue-200 
-                                    font-semibold rounded"
-                                    style="font-family: 'Source Code Pro', monospace;">
-                                    _self</span>: 
+                                <span class="highlighted">_self</span>: 
                                     Valor por defecto. Carga la URL en la misma ventana/tab
                                     de navegación actual.
                             </li>
                             <li>
-                                <span class="bg-blue-100 px-1 hover:bg-blue-200 
-                                    font-semibold rounded"
-                                    style="font-family: 'Source Code Pro', monospace;">
-                                    _blank</span>: 
+                                <span class="highlighted">_blank</span>: 
                                     Carga la URL en un nuevo contexto de navegación.
                                     Usualmente es una pestaña nueva, pero los usuarios pueden
                                     configurar sus navegadores para que en vez de una pestaña, 
                                     se abra una ventana.
                             </li>
                             <li>
-                                <span class="bg-blue-100 px-1 hover:bg-blue-200 
-                                    font-semibold rounded"
-                                    style="font-family: 'Source Code Pro', monospace;">
-                                    _parent</span>: 
+                                <span class="highlighted">_parent</span>: 
                                     Carga la URL en el contexto de navegación padre del actual.
                                     Si no existe el padre, se comporta igual que el modo 
-                                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
+                                    <span class="highlighted" 
                                     font-semibold rounded"
                                     style="font-family: 'Source Code Pro', monospace;">
                                     _self</span>.
                             </li>
                             <li>
-                                <span class="bg-blue-100 px-1 hover:bg-blue-200 
-                                    font-semibold rounded"
-                                    style="font-family: 'Source Code Pro', monospace;">
-                                    _top</span>: 
+                                <span class="highlighted">_top</span>: 
                                     Carga la URL en el contexto en el contexto más alto de navegación
                                     (el cual es un ancestro del actual, y no tiene padre).
                                     Si no existe el padre, se comporta igual que el modo 
-                                    <span class="bg-blue-100 px-1 hover:bg-blue-200 
-                                    font-semibold rounded"
-                                    style="font-family: 'Source Code Pro', monospace;">
-                                    _self</span>.
+                                    <span class="highlighted">_self</span>.
                             </li>
                         </ol>
                     </p>
                 </section>
-                
             </section>
 
             <section class="flex flex-col gap-2">
@@ -154,15 +216,24 @@
                     class="text-2xl font-bold">
                     2. Listas
                 </h1>
-                <p>
-                    
-                </p>
-                <div class="bg-blue-50 p-2 text-blue-800 my-2 flex flex-col gap-2
-                    rounded">
-                    
-                </div>
-            </section>
 
+                <p>
+                    Las listas sirven para representar una secuencia de 
+                    datos. HTML tiene diferentes tipos de listas, ordenadas y
+                    sin orden.
+                </p>
+                <section class="flex flex-col gap-2">
+                    <h2 id="target" 
+                        class="text-xl font-bold">
+                        2.1 Listas sin orden
+                    </h2>
+                    <p>
+                        El elemento 
+                        <
+                    </p>
+                </section>
+
+            </section>
 
         </article>
         <footer class="flex flex-row justify-between p-4 border-t
