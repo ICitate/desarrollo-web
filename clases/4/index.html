@@ -55,7 +55,11 @@
 <li><a href="#listas">2. Listas</a>
 <ul>
 <li><a href="#listas-sin-orden">2.1 Listas sin orden</a></li>
+<li><a href="#listas-ordenadas">2.2 Listas ordenadas</a></li>
+<li><a href="#listas-de-descripcion">2.3 Listas de descripcion</a></li>
 </ul></li>
+<li><a href="#imagenes">3. Imagenes</a></li>
+<li><a href="#navegacion">4. Navegacion</a></li>
 </ul>
 </nav>
 <h1 id="links">1. Links</h1>
@@ -106,7 +110,78 @@ Resultado:
 <h1 id="listas">2. Listas</h1>
 <p>Las listas sirven para representar una secuencia de datos. HTML tiene diferentes tipos de listas, ordenadas y sin orden.</p>
 <h2 id="listas-sin-orden">2.1 Listas sin orden</h2>
-<p>Messi</p>
+<p>El elemento <code>&lt;ul&gt;</code> es el elemento padre para las listas desordenadas. Los hijos de un <code>&lt;ul&gt;</code> son uno o mas elementos <code>&lt;li&gt;</code>. Por ejemplo, creemos una lista de artistas musicales, ya que no importa el orden, usemos la lista <code>&lt;ul&gt;</code>.</p>
+<pre class="html"><code>&lt;ul&gt;
+  &lt;li&gt;Foo Fighters&lt;/li&gt;
+  &lt;li&gt;Arctic Monkeys&lt;/li&gt;
+  &lt;li&gt;Red Hot Chili Peppers&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+Resultado:
+<ul>
+<li>
+Foo Fighters
+</li>
+<li>
+Arctic Monkeys
+</li>
+<li>
+Red Hot Chili Peppers
+</li>
+</ul>
+<h2 id="listas-ordenadas">2.2 Listas ordenadas</h2>
+<p>El elemento <code>&lt;ol&gt;</code> es el elemento padrea para las listas ordenadas. Los hijos de un <code>&lt;ol&gt;</code> son uno o mas elementos <code>&lt;li&gt;</code> (igual que para las listas sin orden). Los simbolos de la lista son la secuencia de numeros que le corresponde a cada uno (1, 2, 3, …). Esto se puede modificar con CSS utilizando la propiedad <code>list-style-type</code> o el atributo HTML <code>type</code>.</p>
+<p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="html,result" data-slug-hash="poQBayy" data-editable="true" data-user="Ignacio-Martin-Citate-G-mez" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/Ignacio-Martin-Citate-G-mez/pen/poQBayy"> Listas ordenadas</a> by Ignacio Martin Citate Gómez (<a href="https://codepen.io/Ignacio-Martin-Citate-G-mez"><span class="citation" data-cites="Ignacio-Martin-Citate-G-mez">@Ignacio-Martin-Citate-G-mez</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<p>El elemento <code>&lt;ol&gt;</code> tiene tres atributos especificos: <code>type</code>, <code>reversed</code>, y <code>start</code>.</p>
+<p>El atributo <code>type</code> sirve para elegir el tipo de numeracion, por defecto se utiliza <code>1</code> para numeros, pero tambien se pueden usar letras empezando desde la <code>A</code>, o numeros romanos <code>I</code>, <code>II</code>, <code>III</code>, etc.</p>
+<p>El atributo booleano <code>reversed</code> invierte el orden de los numeros.</p>
+<p>El atributo <code>start</code> elige desde que valor empieza la lista, por defecto es <code>1</code>.</p>
+<h2 id="listas-de-descripcion">2.3 Listas de descripcion</h2>
+<p>Una lista de descripcion (description list <code>&lt;dl&gt;</code>) es un elemento que contiene cero o mas “terminos de descripcion” (description terms <code>&lt;dt&gt;</code>) y sus “detalles de descripcion” (description details <code>&lt;dd&gt;</code>).</p>
+<pre class="html"><code>&lt;dl&gt;
+    &lt;dt&gt;Foo Fighters&lt;/dt&gt;
+    &lt;dd&gt;
+        Foo Fighters es un grupo de rock estadounidense formada en la ciudad de Seattle en 1994 por el exbaterista de Nirvana, Dave Grohl.
+    &lt;/dd&gt;
+    &lt;dt&gt;Arctic Monkeys&lt;/dt&gt;
+    &lt;dd&gt;Arctic Monkeys es una banda británica de rock, formada en Sheffield, Reino Unido&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+Resultado:
+<div style="display: flex; flex-direction: column; gap: 0.25em; border-bottom: solid 1px #d4d4d4; padding: 0.25em 0;">
+<dl>
+<dt>
+Foo Fighters
+</dt>
+<dd style="margin-left: 0.5em;">
+Foo Fighters es un grupo de rock estadounidense formada en la ciudad de Seattle en 1994 por el exbaterista de Nirvana, Dave Grohl.
+</dd>
+<dt>
+Arctic Monkeys
+</dt>
+<dd style="margin-left: 0.5em;">
+Arctic Monkeys es una banda británica de rock, formada en Sheffield, Reino Unido
+</dd>
+</dl>
+</div>
+<h1 id="imagenes">3. Imagenes</h1>
+<p>Las imagenes decorativas, como los gradientes de fondo en los botones o las imagenes de fondo en las paginas, son solo para presentacion (estilo) y deberian ser aplicados con CSS. Por el contrario, cuando una imagen aporta algo al contexto del documento, esta debe ser embebida en el HTML.</p>
+<p>El metodo principal para incluir imagenes es el tag <code>&lt;img&gt;</code> con el atributo <code>src</code> que referencia la URL de la imagen, y el atributo <code>alt</code> que describe su contenido.</p>
+<pre class="html"><code>&lt;img src=&quot;https://thisis-images.scdn.co/37i9dQZF1DZ06evO4BaAkp-default.jpg&quot; 
+    alt=&quot;Portada de Arctic Monkeys en Spotify&quot;
+/&gt;</code></pre>
+<p>Resultado:</p>
+<div>
+<img src="https://thisis-images.scdn.co/37i9dQZF1DZ06evO4BaAkp-default.jpg" 
+        alt="Portada de Arctic Monkeys en Spotify" 
+        style="width: 15em;"
+    />
+</div>
+<p>El atributo <code>alt</code> sirve como texto alternativo para la imagen, dando una descripcion de la misma para aquellos que no puedan ver la pantalla (por ejemplo motores de busqueda como Google, y tecnologias de asistencia como Alexa, Siri, y Google Assistant). Tambien sirve para los emails HTML, ya que muchos usuarios bloquean las imagenes en sus apps de correo.</p>
+<h1 id="navegacion">4. Navegacion</h1>
+<p>Ya vimos como crear links con el tag <code>&lt;a&gt;</code> y como crear listas con <code>&lt;ul&gt;</code> y <code>&lt;ol&gt;</code>. En esta seccion, agruparemos listas de links para crear elementos de navegacion.</p>
+<p>La navegacion no deja de ser mas que una lista de links que llevan a otras paginas o a partes de la misma pagina. Por ejemplo, el indice de contenidos de esta pagina forma parte de su navegacion.</p>
 </article>
 <footer class="flex flex-row justify-between p-4 border-t
     border-stone-400"
