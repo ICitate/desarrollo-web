@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
@@ -11,17 +11,34 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark-dimmed.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
   <script>hljs.highlightAll();</script>
-  <meta name="author" content="Desarrollo web" />
-  <meta name="description" content="Clase 4" />
-  <title>Clase 4 - Desarrollo web</title>
+$for(author-meta)$
+  <meta name="author" content="$author-meta$" />
+$endfor$
+$if(date-meta)$
+  <meta name="dcterms.date" content="$date-meta$" />
+$endif$
+$if(keywords)$
+  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+$endif$
+$if(description-meta)$
+  <meta name="description" content="$description-meta$" />
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
   <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    $styles.html()$
   </style>
+$for(css)$
+  <link rel="stylesheet" href="$css$" />
+$endfor$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+$if(math)$
+$if(mathjax)$
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+$endif$
+  $math$
+$endif$
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -39,47 +56,27 @@
             &lt;DesarrolloWeb &#47;&gt
         </span>
         <span style="font-weight: 400;">
-            &rsaquo; <span style="font-weight: 600;">Clase 4</span>
+            &rsaquo; <span style="font-weight: 600;">$description-meta$</span>
         </span>
     </div>
 </header>
+$for(include-before)$
+$include-before$
+$endfor$
 <article>
-<nav id="TOC" role="doc-toc">
-<h2 id="toc-title">&rsaquo; Indice de contenidos</h2>
-<ul>
-<li><a href="#hola">1. Hola</a>
-<ul>
-<li><a href="#something-else">1.1 Something else</a>
-<ul>
-<li><a href="#subtitle">1.1.1 Subtitle</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#hola-2">2. Hola 2</a></li>
-</ul>
+$if(toc)$
+<nav id="$idprefix$TOC" role="doc-toc">
+$if(toc-title)$
+<h2 id="$idprefix$toc-title">&rsaquo; $toc-title$</h2>
+$endif$
+$table-of-contents$
 </nav>
-<h1 id="hola">1. Hola</h1>
-<p>Prueba. Prueba this is a <code>&lt;div&gt;</code></p>
-<blockquote>
-<p>Algo importante para remarcar.</p>
-</blockquote>
-<h2 id="something-else">1.1 Something else</h2>
-<p>jajajajaja</p>
-<pre class="html"><code>&lt;h1&gt;
-    Soy un encabezado de nivel 1
-&lt;/h1&gt;
-&lt;h2&gt;
-    Soy un encabezado de nivel 2
-&lt;/h2&gt;
-&lt;h3&gt;
-    Soy un encabezado de nivel 3
-&lt;/h3&gt;</code></pre>
-<h3 id="subtitle">1.1.1 Subtitle</h3>
-<pre class="css"><code>.my-class {
-    color: red;
-}</code></pre>
-<h1 id="hola-2">2. Hola 2</h1>
-<p>Prueba. Prueba this is a <code>div</code></p>
+$endif$
+$body$
 </article>
+$for(include-after)$
+$include-after$
+$endfor$
 <footer class="flex flex-row justify-between p-4 border-t
     border-stone-400"
 >
