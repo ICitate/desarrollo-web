@@ -121,6 +121,10 @@ h6 {
     line-height: 1.25rem; /* 20px */
 }
 
+ul, li {
+    list-style-position: inside;
+}
+
 blockquote {
     background: #eff6ff;
     padding: 0.5rem; /* 8px */
