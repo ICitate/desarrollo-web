@@ -59,7 +59,13 @@
 <li><a href="#listas-de-descripcion">2.3 Listas de descripcion</a></li>
 </ul></li>
 <li><a href="#imagenes">3. Imagenes</a></li>
-<li><a href="#navegacion">4. Navegacion</a></li>
+<li><a href="#navegacion">4. Navegacion</a>
+<ul>
+<li><a href="#tabla-de-contenidos">4.1 Tabla de contenidos</a></li>
+<li><a href="#sidebar">4.2 Sidebar</a></li>
+<li><a href="#topbar">4.3 Topbar</a></li>
+</ul></li>
+<li><a href="#tablas">5. Tablas</a></li>
 </ul>
 </nav>
 <h1 id="links">1. Links</h1>
@@ -182,6 +188,177 @@ Arctic Monkeys es una banda británica de rock, formada en Sheffield, Reino Unid
 <h1 id="navegacion">4. Navegacion</h1>
 <p>Ya vimos como crear links con el tag <code>&lt;a&gt;</code> y como crear listas con <code>&lt;ul&gt;</code> y <code>&lt;ol&gt;</code>. En esta seccion, agruparemos listas de links para crear elementos de navegacion.</p>
 <p>La navegacion no deja de ser mas que una lista de links que llevan a otras paginas o a partes de la misma pagina. Por ejemplo, el indice de contenidos de esta pagina forma parte de su navegacion.</p>
+<p>Lo recomendable es que los usuarios puedan navegar cualquier pagina del sitio con la menor cantidad de clicks posbiles, de esta forma la navegacion se vuelve intutiva en lugar de agobiante.</p>
+<p>Utilizando links es posible saltar a otros elementos en la pagina con un cierto <code>id</code>. Por ejemplo, para ir a la seccion navegacion de esta pagina, se puede utilizar este codigo.:</p>
+<pre class="html"><code>&lt;a href=&quot;#navegacion&quot;&gt;4. Navegacion&lt;/a&gt;</code></pre>
+<p>Esto movera el foco de la pagina al elemento con <code>id="navegacion"</code>, en nuestro caso es:</p>
+<pre class="html"><code>&lt;h1 id=&quot;navegacion&quot;&gt;4. Navegacion&lt;/h1&gt;</code></pre>
+<p>En general, todos los componentes de navegacion que creemos tendran la siguiente forma:</p>
+<pre class="html"><code>&lt;nav&gt;
+    &lt;a href=&quot;/alguna-pagina&quot;&gt;
+        Link 1
+    &lt;/a&gt;
+    &lt;a href=&quot;/alguna-otra-pagina&quot;&gt;
+        Link 2
+    &lt;/a&gt;
+    &lt;a href=&quot;/otra-pagina&quot;&gt;
+        Link 3
+    &lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+<p>La diferencia reecae en el CSS utilizado para darle estilo y que se presente de distintas maneras.</p>
+<h2 id="tabla-de-contenidos">4.1 Tabla de contenidos</h2>
+<p>La tabla de contenidos es un ejemplo de navegacion local, nos permite saltar a diferentes partes de (usualmente) la misma pagina.</p>
+<p>La tabla de contenidos de esta pagina tiene la siguiente estructura:</p>
+<pre class="html"><code>&lt;nav id=&quot;TOC&quot; role=&quot;doc-toc&quot;&gt;
+  &lt;h2 id=&quot;toc-title&quot;&gt;&amp;rsaquo; Indice de contenidos&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#links&quot;&gt;1. Links&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;#atributo-href&quot;&gt;1.1 Atributo href&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;#atributo-target&quot;&gt;1.2 Atributo target&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#listas&quot;&gt;2. Listas&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;#listas-sin-orden&quot;&gt;2.1 Listas sin orden&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;#listas-ordenadas&quot;&gt;2.2 Listas ordenadas&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;#listas-de-descripcion&quot;&gt;2.3 Listas de descripcion&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#imagenes&quot;&gt;3. Imagenes&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#navegacion&quot;&gt;4. Navegacion&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+<p>Notese que el elemento <code>&lt;nav&gt;</code> encierra toda la tabla de contenidos, esto semanticamente significa que dentro del <code>&lt;nav&gt;</code> se encuentran elementos que permiten la navegacion.</p>
+<h2 id="sidebar">4.2 Sidebar</h2>
+<p>Un Sidebar se trata de una barra de navegacion que se encuentra en un lateral de la pagina. Sigue el mismo principio, se trata de una lista de links, tambien puede tener imagenes dentro de los <code>&lt;a&gt;</code> por cuestiones esteticas.</p>
+<p>Por ejemplo, la barra de navegacion de Instagram (en su version web).</p>
+<p><img src="images/insta-sidebar.png"
+    height="400"
+    style="height: 30em;"
+    alt="Instagram Sidebar"
+/></p>
+<h2 id="topbar">4.3 Topbar</h2>
+<p>Un Topbar se trata de una barra de navegacion superior, que suele linkear a distintas paginas relacionadas, dentro de la misma aplicacion.</p>
+<p>Por ejemplo, el topbar de Netflix (en su version web).</p>
+<p><img src="images/netflix-topbar.png"
+    style="width: 100%;"
+    alt="Netflix Topbar"
+/></p>
+<h1 id="tablas">5. Tablas</h1>
+<p>Las tablas HTML se usan para mostrar datos tabulares con filas y columnas.</p>
+<blockquote>
+<p>La decision para usar una <code>&lt;table&gt;</code> debe basarse en el contenido que se presenta a las necesidades de los usuarios en relacion al mismo. Si los datos presentados tambien necesitan ser comparados, ordenados, calculados y referenciados entre si, entonces una <code>&lt;table&gt;</code> probablemente sea la opcion correcta. En cambio, si solamente se necesitan mostrar datos de forma no-tabular, como un grupo de imagenes (estilo thumbnail de YouTube), las tablas no son la opcion apropiada: en lugar de eso, crea una lista <code>&lt;ul&gt;</code> con imagenes y dale estilo con CSS.</p>
+</blockquote>
+<p>Un ejemplo de una tabla simple es:</p>
+<pre class="html"><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Artista&lt;/th&gt;
+    &lt;th&gt;Genero&lt;/th&gt;
+    &lt;th&gt;Cancion&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Foo Fighters&lt;/td&gt;
+    &lt;td&gt;Rock&lt;/td&gt;
+    &lt;td&gt;Under you&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Tame Impala&lt;/td&gt;
+    &lt;td&gt;Indie&lt;/td&gt;
+    &lt;td&gt;Let it happen&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Sex Pistols&lt;/td&gt;
+    &lt;td&gt;Punk&lt;/td&gt;
+    &lt;td&gt;EMI&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Megadeth&lt;/td&gt;
+    &lt;td&gt;Metal&lt;/td&gt;
+    &lt;td&gt;Trust&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt; </code></pre>
+<table>
+<tr>
+<th>
+Artista
+</th>
+<th>
+Genero
+</th>
+<th>
+Cancion
+</th>
+</tr>
+<tr>
+<td>
+Foo Fighters
+</td>
+<td>
+Rock
+</td>
+<td>
+Under you
+</td>
+</tr>
+<tr>
+<td>
+Tame Impala
+</td>
+<td>
+Indie
+</td>
+<td>
+Let it happen
+</td>
+</tr>
+<tr>
+<td>
+Sex Pistols
+</td>
+<td>
+Punk
+</td>
+<td>
+EMI
+</td>
+</tr>
+<tr>
+<td>
+Megadeth
+</td>
+<td>
+Metal
+</td>
+<td>
+Trust
+</td>
+</tr>
+</table>
+<p>El elemento <code>&lt;table&gt;</code> es el que posee el contenido de la tabla.</p>
+<p>Cada fila de la tabla comienza con un <code>&lt;tr&gt;</code> (table row) y termina con un <code>&lt;/tr&gt;</code>.</p>
+<p>El elemento <code>&lt;th&gt;</code> (table header) define una cabecera, que es opcional. En nuestro ejemplo representa una descripcion de cada columna.</p>
+<p>Cada celda de la tabla se define con el tag <code>&lt;td&gt;</code> (table data).</p>
+<blockquote>
+<p>Una celda puede contener cualquier tipo de elementos HTML.</p>
+</blockquote>
+<p>Para aprender mas sobre tablas HTML, dejamos <a href="https://www.w3schools.com/html/html_tables.asp">esta referencia</a>.</p>
 </article>
 <footer class="flex flex-row justify-between p-4 border-t
     border-stone-400"

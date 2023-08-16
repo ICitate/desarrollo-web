@@ -205,8 +205,203 @@ En esta seccion, agruparemos listas de links para crear elementos de navegacion.
 
 La navegacion no deja de ser mas que una lista de links que llevan a otras paginas 
 o a partes de la misma pagina.
-Por ejemplo, el indice de contenidos de esta pagina forma parte de su navegacion.
+Por ejemplo, el indice de contenidos de esta pagina forma parte de su navegacion.  
 
+Lo recomendable es que los usuarios puedan navegar cualquier pagina del sitio
+con la menor cantidad de clicks posbiles, de esta forma la navegacion se vuelve 
+intutiva en lugar de agobiante.
 
+Utilizando links es posible saltar a otros elementos en la pagina con un cierto `id`.
+Por ejemplo, para ir a la seccion navegacion de esta pagina, se puede utilizar este
+codigo.:
 
+```html
+<a href="#navegacion">4. Navegacion</a>
+```
 
+Esto movera el foco de la pagina al elemento con `id="navegacion"`, en nuestro 
+caso es:
+
+```html
+<h1 id="navegacion">4. Navegacion</h1>
+```
+
+En general, todos los componentes de navegacion que creemos tendran la 
+siguiente forma:
+
+```html
+<nav>
+    <a href="/alguna-pagina">
+        Link 1
+    </a>
+    <a href="/alguna-otra-pagina">
+        Link 2
+    </a>
+    <a href="/otra-pagina">
+        Link 3
+    </a>
+</nav>
+```
+
+La diferencia reecae en el CSS utilizado para darle estilo y que se 
+presente de distintas maneras.
+
+## 4.1 Tabla de contenidos
+La tabla de contenidos es un ejemplo de navegacion local, nos permite saltar 
+a diferentes partes de (usualmente) la misma pagina.
+
+La tabla de contenidos de esta pagina tiene la siguiente estructura:
+
+```html
+<nav id="TOC" role="doc-toc">
+  <h2 id="toc-title">&rsaquo; Indice de contenidos</h2>
+  <ul>
+    <li>
+      <a href="#links">1. Links</a>
+      <ul>
+        <li>
+          <a href="#atributo-href">1.1 Atributo href</a>
+        </li>
+        <li>
+          <a href="#atributo-target">1.2 Atributo target</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#listas">2. Listas</a>
+      <ul>
+        <li>
+          <a href="#listas-sin-orden">2.1 Listas sin orden</a>
+        </li>
+        <li>
+          <a href="#listas-ordenadas">2.2 Listas ordenadas</a>
+        </li>
+        <li>
+          <a href="#listas-de-descripcion">2.3 Listas de descripcion</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#imagenes">3. Imagenes</a>
+    </li>
+    <li>
+      <a href="#navegacion">4. Navegacion</a>
+    </li>
+  </ul>
+</nav>
+```
+
+Notese que el elemento `<nav>` encierra toda la tabla de contenidos, esto 
+semanticamente significa que dentro del `<nav>` se encuentran elementos 
+que permiten la navegacion.
+
+## 4.2 Sidebar 
+Un Sidebar se trata de una barra de navegacion que se encuentra en un lateral 
+de la pagina. Sigue el mismo principio, se trata de una lista de links,
+tambien puede tener imagenes dentro de los `<a>` por cuestiones esteticas.
+
+Por ejemplo, la barra de navegacion de Instagram (en su version web). 
+
+<img src="images/insta-sidebar.png"
+    height="400"
+    style="height: 30em;"
+    alt="Instagram Sidebar"
+/>
+
+## 4.3 Topbar 
+Un Topbar se trata de una barra de navegacion superior, que suele linkear a 
+distintas paginas relacionadas, dentro de la misma aplicacion.
+
+Por ejemplo, el topbar de Netflix (en su version web).
+
+<img src="images/netflix-topbar.png"
+    style="width: 100%;"
+    alt="Netflix Topbar"
+/>
+
+# 5. Tablas
+
+Las tablas HTML se usan para mostrar datos tabulares con filas y columnas.
+
+> La decision para usar una `<table>` debe basarse en el contenido que se 
+presenta a las necesidades de los usuarios en relacion al mismo. Si 
+los datos presentados tambien necesitan ser comparados, ordenados, calculados 
+y referenciados entre si, entonces una `<table>` probablemente sea la opcion 
+correcta. En cambio, si solamente se necesitan mostrar datos de forma 
+no-tabular, como un grupo de imagenes (estilo thumbnail de YouTube), las tablas 
+no son la opcion apropiada: en lugar de eso, crea una lista `<ul>` con imagenes
+y dale estilo con CSS.
+
+Un ejemplo de una tabla simple es:
+
+```html
+<table>
+  <tr>
+    <th>Artista</th>
+    <th>Genero</th>
+    <th>Cancion</th>
+  </tr>
+  <tr>
+    <td>Foo Fighters</td>
+    <td>Rock</td>
+    <td>Under you</td>
+  </tr>
+  <tr>
+    <td>Tame Impala</td>
+    <td>Indie</td>
+    <td>Let it happen</td>
+  </tr>
+  <tr>
+    <td>Sex Pistols</td>
+    <td>Punk</td>
+    <td>EMI</td>
+  </tr>
+  <tr>
+    <td>Megadeth</td>
+    <td>Metal</td>
+    <td>Trust</td>
+  </tr>
+</table> 
+```
+
+<table>
+  <tr>
+    <th>Artista</th>
+    <th>Genero</th>
+    <th>Cancion</th>
+  </tr>
+  <tr>
+    <td>Foo Fighters</td>
+    <td>Rock</td>
+    <td>Under you</td>
+  </tr>
+  <tr>
+    <td>Tame Impala</td>
+    <td>Indie</td>
+    <td>Let it happen</td>
+  </tr>
+  <tr>
+    <td>Sex Pistols</td>
+    <td>Punk</td>
+    <td>EMI</td>
+  </tr>
+  <tr>
+    <td>Megadeth</td>
+    <td>Metal</td>
+    <td>Trust</td>
+  </tr>
+</table> 
+
+El elemento `<table>` es el que posee el contenido de la tabla. 
+
+Cada fila de la tabla comienza con un `<tr>` (table row) y termina 
+con un `</tr>`.
+
+El elemento `<th>` (table header) define una cabecera, que es opcional. En 
+nuestro ejemplo representa una descripcion de cada columna.
+
+Cada celda de la tabla se define con el tag `<td>` (table data).
+
+> Una celda puede contener cualquier tipo de elementos HTML. 
+
+Para aprender mas sobre tablas HTML, dejamos [esta referencia](https://www.w3schools.com/html/html_tables.asp).
