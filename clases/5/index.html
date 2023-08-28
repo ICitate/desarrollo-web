@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="../markdown.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark-dimmed.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <meta name="author" content="Desarrollo web" />
+  <meta name="description" content="Clase 5" />
+  <title>Clase 5 - Desarrollo web</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header style="display: flex; flex-direction: row; justify-content: between;
+    padding: 0.5em; border-bottom: solid 1px #a8a29e;"
+>
+    <div style="display: flex; flex-direction: column; gap: 0.5em; background-color: white;
+        opacity: 0.9;"
+    >
+        <span style="font-family: 'source code pro', monospace; color: #2563eb;
+            font-size: 1.5rem; line-height: 2rem;"
+        >
+            &lt;DesarrolloWeb &#47;&gt
+        </span>
+        <span style="font-weight: 400;">
+            &rsaquo; <span style="font-weight: 600;">Clase 5</span>
+        </span>
+    </div>
+</header>
+<article>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">&rsaquo; Indice de contenidos</h2>
+<ul>
+<li><a href="#formularios">1. Formularios</a>
+<ul>
+<li><a href="#inputs">1.1 Inputs</a></li>
+<li><a href="#select">1.2 Select</a></li>
+<li><a href="#submit">1.3 Submit</a></li>
+<li><a href="#validacion">1.4 Validacion</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="formularios">1. Formularios</h1>
+<p>El elemento HTML <code>&lt;form&gt;</code> se utiliza para tomar entradas (inputs) de usuario, para luego ser procesadas por un servidor.</p>
+<blockquote>
+<p>HTML tiene muchas posibilidades de interaccion con el navegador sin necesidad de utilizar JavaScript. Muchas veces es mejor realizar la maxima interaccion solo con HTML y emplear JavaScript cuando sea indispensable.</p>
+</blockquote>
+<p>Los atributos HTML pueden definir criterios especificos a cumplir sobre los datos ingresados. Cuando un usuario trata de enviar (submit) el formulario, todos sus datos pasaran por una validacion del lado del cliente y evitaran que se envien datos que no cumplan con dichos criterios; todo sin utilizar JavaScript.</p>
+<p>Un ejemplo sencillo es un formulario de Login. Donde los usuarios escriben su email y su contraseña.</p>
+<p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="html,result" data-slug-hash="MWZKbRr" data-editable="true" data-user="Ignacio-Martin-Citate-G-mez" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/Ignacio-Martin-Citate-G-mez/pen/MWZKbRr"> Untitled</a> by Ignacio Martin Citate Gómez (<a href="https://codepen.io/Ignacio-Martin-Citate-G-mez"><span class="citation" data-cites="Ignacio-Martin-Citate-G-mez">@Ignacio-Martin-Citate-G-mez</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<p>Por defecto, al enviar un formulario se realiza una solicitud HTTP de tipo <code>POST</code> a la URL actual. El metodo puede modificarse utilizando el atributo <code>method</code>. Por ejemplo, podemos realizar un <code>GET</code> en lugar de un <code>POST</code>. Tambien se puede cambiar la URL utilizando el atributo <code>action</code>.</p>
+<h2 id="inputs">1.1 Inputs</h2>
+<p>El elemento <code>&lt;input&gt;</code> es el elemento mas utilizado dentro del elemento form. Un <code>&lt;input&gt;</code> puede mostrarse de varias formas, dependiendo de su atributo <code>type</code>.</p>
+<p>Algunos ejemplos son:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Descripcion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt;input type=“text”&gt;</td>
+<td>Entrada de texto de una unica linea</td>
+</tr>
+<tr class="even">
+<td>&lt;input type=“email”&gt;</td>
+<td>Entrada de texto de una unica linea para emails (valida que el dato tenga formato de email)</td>
+</tr>
+<tr class="odd">
+<td>&lt;input type=“radio”&gt;</td>
+<td>Radio button (permite seleccionar una de varias opciones)</td>
+</tr>
+<tr class="even">
+<td>&lt;input type=“checkbox”&gt;</td>
+<td>Checkbox (permite seleccionar cero o mas de varias opciones)</td>
+</tr>
+<tr class="odd">
+<td>&lt;input type=“submit”&gt;</td>
+<td>Boton de submit (para enviar formularios)</td>
+</tr>
+<tr class="even">
+<td>&lt;input type=“button”&gt;</td>
+<td>Boton (un boton comun)</td>
+</tr>
+</tbody>
+</table>
+<p>Para ver mas, recomendamos esta <a href="https://www.w3schools.com/html/html_form_input_types.asp#">referencia de todos los tipos de inputs</a>.</p>
+<h2 id="select">1.2 Select</h2>
+<p>El elemento <code>&lt;select&gt;</code> sirve para seleccionar un valor de una lista. Si es utilizado dentro de un form, funciona como un input.</p>
+<pre class="html"><code>&lt;label for=&quot;cars&quot;&gt;Choose a car:&lt;/label&gt;
+&lt;select name=&quot;cars&quot; id=&quot;cars&quot;&gt;
+  &lt;option value=&quot;volvo&quot;&gt;Volvo&lt;/option&gt;
+  &lt;option value=&quot;saab&quot;&gt;Saab&lt;/option&gt;
+  &lt;option value=&quot;mercedes&quot;&gt;Mercedes&lt;/option&gt;
+  &lt;option value=&quot;audi&quot;&gt;Audi&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+<p>El tag <code>&lt;label&gt;</code> sirve para agregar una descripcion a un input, el atributo <code>for</code> especifica a que elemento esta describiendo, referenciandolo por <code>id</code> (al presionar el texto del <code>&lt;label&gt;</code> se nos pondra el cursor en el input referenciado)</p>
+<p>El atributo <code>name</code> se necesita para referenciar a los datos del formulario. En el ejemplo, hacer un submit con el <code>value=audi</code> seleccionado resultara en <code>cars=audi</code>.</p>
+<h2 id="submit">1.3 Submit</h2>
+<p>Los formularios son enviados una vez que el usuario activa el boton de submit que se encuentra dentro del elemento <code>&lt;form&gt;</code>. Este boton se representa de la siguiente forma:</p>
+<pre class="html"><code>&lt;input type=&quot;submit&quot; value=&quot;Submit Form&quot;&gt;
+&lt;button type=&quot;submit&quot;&gt;Submit Form&lt;/button&gt;</code></pre>
+<h2 id="validacion">1.4 Validacion</h2>
+<p>HTML tiene validacion integrada sin necesidad de usar JavaScript.</p>
+<p>Algunos ejemplos de validacion con HTML son los atributos:</p>
+<p><code>required</code>: especifica que un campo debe ser completado obligatoriamente.</p>
+<p><code>min</code>: especifica una cantidad minima para <code>input</code> con <code>type="number"</code></p>
+<p><code>max</code>: especifica una cantidad minima para <code>input</code> con <code>type="number"</code></p>
+<p><code>minlength</code>: especifica una longitud minima de caracteres para un <code>input</code> de texto.</p>
+<p><code>maxlength</code>: especifica una longitud maxima de caracteres para un <code>input</code> de texto.</p>
+<p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="html,result" data-slug-hash="PoXZWWW" data-editable="true" data-user="Ignacio-Martin-Citate-G-mez" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/Ignacio-Martin-Citate-G-mez/pen/PoXZWWW"> Ejemplo form validation</a> by Ignacio Martin Citate Gómez (<a href="https://codepen.io/Ignacio-Martin-Citate-G-mez"><span class="citation" data-cites="Ignacio-Martin-Citate-G-mez">@Ignacio-Martin-Citate-G-mez</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+</article>
+<footer class="flex flex-row justify-between p-4 border-t
+    border-stone-400"
+>
+    M. Emilia Moyano, Ignacio M. Citate Gomez
+</footer>
+</body>
+</html>
