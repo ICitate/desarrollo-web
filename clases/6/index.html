@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="../markdown.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark-dimmed.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <meta name="author" content="Desarrollo web" />
+  <meta name="description" content="Clase 6" />
+  <title>Clase 6 - Desarrollo web</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header style="display: flex; flex-direction: row; justify-content: between;
+    padding: 0.5em; border-bottom: solid 1px #a8a29e;"
+>
+    <div style="display: flex; flex-direction: column; gap: 0.5em; background-color: white;
+        opacity: 0.9;"
+    >
+        <span style="font-family: 'source code pro', monospace; color: #2563eb;
+            font-size: 1.5rem; line-height: 2rem;"
+        >
+            &lt;DesarrolloWeb &#47;&gt
+        </span>
+        <span style="font-weight: 400;">
+            &rsaquo; <span style="font-weight: 600;">Clase 6</span>
+        </span>
+    </div>
+</header>
+<article>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">&rsaquo; Indice de contenidos</h2>
+<ul>
+<li><a href="#introduccion-a-css">1. Introduccion a CSS</a></li>
+<li><a href="#sintaxis">2. Sintaxis</a></li>
+<li><a href="#primeros-pasos-con-css">3. Primeros pasos con CSS</a>
+<ul>
+<li><a href="#linkear-html-con-css">3.1 Linkear HTML con CSS</a></li>
+<li><a href="#agregando-una-clase">3.2 Agregando una clase</a></li>
+</ul></li>
+<li><a href="#box-model-modelo-de-caja">4. Box model (modelo de caja)</a></li>
+<li><a href="#unidades">5. Unidades</a></li>
+<li><a href="#unidades-absolutas">5.1 Unidades absolutas</a></li>
+<li><a href="#unidades-relativas">5.2 Unidades relativas</a></li>
+<li><a href="#color">6. Color</a></li>
+<li><a href="#fuentes-de-texto">7. Fuentes de texto</a></li>
+<li><a href="#flexbox">8. Flexbox</a>
+<ul>
+<li><a href="#la-propiedad-display">8.1 La propiedad display</a></li>
+<li><a href="#flexbox-en-detalle">8.2 Flexbox en detalle</a>
+<ul>
+<li><a href="#dirección-de-los-items">8.2.1 Dirección de los items</a></li>
+<li><a href="#alineamiento-de-los-items">8.2.2 Alineamiento de los items</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="introduccion-a-css">1. Introduccion a CSS</h1>
+<p>CSS es un lenguaje que sirve para especificar como se deben presentar los documentos, es decir, como se les da estilo.</p>
+<p>CSS puede ser utilizado para cambiar desde el color y el tamaño de los textos hasta incluso crear elementos como sidebars, animaciones, sombras, entre otros.</p>
+<p>Hasta ahora hemos visto como se realiza la estructura basica de una pagina web utilizando solo HTML. Aunque no utilicemos estilos CSS el navegador tiene estilos por defecto, que se aplican sin necesidad de tener un archivo CSS.</p>
+<p>Con CSS vamos a poder controlar como queremos que se vea nuestro sitio exactamente.</p>
+<h1 id="sintaxis">2. Sintaxis</h1>
+<p>CSS es un lenguaje basado en reglas. Las reglas se definen especificando grupos de estilos que deben aplicarse a elementos (o grupos de elementos) de la pagina web.</p>
+<p>Veamos el siguiente codigo CSS:</p>
+<pre class="css"><code>h1 {
+  color: red;
+  font-size: 5em;
+}</code></pre>
+<p>Esto significa: a todos los elementos <code>h1</code> se le aplicara lo siguiente:</p>
+<ul>
+<li>color: la propiedad <code>color</code> dice que color de texto debe tener, en este caso rojo.</li>
+<li>font-size: la propiedad <code>font-size</code> define el tamaño del texto, en este caso son 5em, que es una unidad que veremos mas en profundidad.</li>
+</ul>
+<p>Esto es un ejemplo de una regla CSS:</p>
+<p>Una regla CSS comienza con un ‘selector’, que selecciona los elementos HTML a los cuales se le aplicaran los estilos. En este ejemplo son los elementos <code>h1</code>.</p>
+<p>Luego entre llaves <code>{ }</code> se escriben una o mas <strong>declaraciones</strong>, que toman la forma de <strong>propiedades</strong> y <strong>valores</strong>. Una propiedad por ejemplo es <code>color</code> y el valor es <code>red</code>.</p>
+<p>Cada propiedad CSS tiene diferentes valores posibles. La propiedad <code>color</code>, puede tomar distintos <a href="https://developer.mozilla.org/es/docs/Learn/CSS/Building_blocks/Values_and_units#color">valores de color</a>, mientras que la propiedad <code>font-size</code> puede tomar distintas <a href="https://developer.mozilla.org/es/docs/Learn/CSS/Building_blocks/Values_and_units#n%C3%BAmeros_longitudes_y_porcentajes">unidades de longitud</a>.</p>
+<h1 id="primeros-pasos-con-css">3. Primeros pasos con CSS</h1>
+<h2 id="linkear-html-con-css">3.1 Linkear HTML con CSS</h2>
+<p>Empecemos con lo conocido, es decir nuestro documento HTML. Supongamos que tenemos un archivo <code>index.html</code> con el siguiente contenido:</p>
+<pre class="html"><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;Ejemplo con CSS&lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;h1&gt;Una pagina sencilla&lt;/h1&gt;
+
+    &lt;p&gt;
+      Este es un parrafo con algo de texto de 
+      ejemplo. En este texto hay un 
+      &lt;span&gt;element span&lt;/span&gt; y tambien 
+      un &lt;a href=&quot;https://unnoba.edu.ar&quot;&gt;link&lt;/a&gt;.
+    &lt;/p&gt;
+
+    &lt;p&gt;
+      Este es el segundo parrafo que contiene texto en &lt;em&gt;italica&lt;/em&gt;.
+    &lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Item &lt;span&gt;uno&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;Item dos&lt;/li&gt;
+      &lt;li&gt;Item &lt;em&gt;tres&lt;/em&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>El primer paso es crear un archivo CSS, en este ejemplo lo llamaremos <code>styles.css</code> y contendra todos nuestros estilos.</p>
+<p>Para que el HTML pueda “encontrar” este archivo tenemos que linkearlo. Esto se hace agregando lo siguiente al elemento <code>&lt;head&gt;</code> del documento HTML.</p>
+<pre class="html"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot; /&gt;</code></pre>
+<p>El elemento <code>&lt;link&gt;</code> le dice al navegador que tenemos una hoja de estilos (<code>rel="stylesheet"</code>), y que su ubicacion esta dada por <code>href="styles.css"</code>.</p>
+<p>Ahora estamos en condiciones de editar nuestra pagina con estilos CSS.</p>
+<h2 id="agregando-una-clase">3.2 Agregando una clase</h2>
+<p>Hasta ahora vimos como podemos seleccionar elementos HTML para cambiarles el estilo referenciandolos por su nombre, por ejemplo <code>h1</code>. Pero esto no siempre es conveniente, por ejemplo, si queremos que algun elemento del mismo tipo no se vea igual al resto. Ej: tenemos distintos elementos <code>button</code> y queremos tener uno que tenga color rojo y otro color azul.</p>
+<p>Entonces tenemos que utilizar un atributo HTML llamado <code>class</code> (clase). Una clase CSS sirve para seleccionar un subconjunto de elementos sin cambiar el estilo de otros.</p>
+<p>En el ejemplo anterior, vamos a agregarle una clase (llamada ‘especial’) a uno de los elementos <code>li</code> para diferenciarlo del resto.</p>
+<pre class="html"><code>&lt;ul&gt;
+  &lt;li&gt;Item &lt;span&gt;uno&lt;/span&gt;&lt;/li&gt;
+  &lt;li class=&quot;especial&quot;&gt;Item dos&lt;/li&gt;
+  &lt;li&gt;Item &lt;em&gt;tres&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<p>En nuestro CSS podemos crear un estilo que sea aplicado a todos los elementos que tengan la clase <code>especial</code>.</p>
+<pre class="css"><code>.especial {
+    color: #2563eb;
+    font-weight: bold;
+}</code></pre>
+<blockquote>
+<p>Notese que cuando queremos darle estilo a clases de CSS utilizamos un ‘.’ seguido de el nombre de la clase.</p>
+</blockquote>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="zYyZzwq" data-editable="true" data-user="Ignacio-Martin-Citate-G-mez" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/Ignacio-Martin-Citate-G-mez/pen/zYyZzwq"> Ejemplo CSS simple</a> by Ignacio Martin Citate Gómez (<a href="https://codepen.io/Ignacio-Martin-Citate-G-mez"><span class="citation" data-cites="Ignacio-Martin-Citate-G-mez">@Ignacio-Martin-Citate-G-mez</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<h1 id="box-model-modelo-de-caja">4. Box model (modelo de caja)</h1>
+<p>En CSS el termino “box model” se refiere a una “caja” que envuelve a cada elemento HTML. Esta caja se compone de: margen, borde, padding y el contenido.</p>
+<p><img src="https://web-dev.imgix.net/image/VbAJIREinuYvovrBzzvEyZOpw5w1/ECuEOJEGnudhXW5JEFih.svg" /></p>
+<p>Explicacion de las diferentes partes:</p>
+<ul>
+<li>Content: Es el contenido del elemento, por ejemplo texto o imagenes.</li>
+<li>Padding: Es un “relleno” alrededor del elemento, que sirve para darle mas espacio visualmente.</li>
+<li>Border: Es el borde que encierra el padding y el contenido.</li>
+<li>Margin: Es un area de margen fuera del borde (no es lo mismo que el padding ya que esta por fuera del borde).</li>
+</ul>
+<p>Con CSS podemos especificar cuanto padding (relleno) o margin (margen) debe tener un elemento, incluso podemos definir el borde, que tan grueso es y que color tiene.</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="BavWZmG" data-editable="true" data-user="Ignacio-Martin-Citate-G-mez" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/Ignacio-Martin-Citate-G-mez/pen/BavWZmG"> Untitled</a> by Ignacio Martin Citate Gómez (<a href="https://codepen.io/Ignacio-Martin-Citate-G-mez"><span class="citation" data-cites="Ignacio-Martin-Citate-G-mez">@Ignacio-Martin-Citate-G-mez</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<h1 id="unidades">5. Unidades</h1>
+<p>CSS tiene diferentes unidades para expresar la longitud. Muchas propiedades CSS toman valor de longitud, como por ejemplo <code>width</code>, <code>margin</code>, <code>padding</code>, <code>font-size</code>, etc.</p>
+<p>Todas las unidades de longitud se componen de un numero seguido de su unidad, como <code>10px</code>, <code>2em</code>, etc.</p>
+<h1 id="unidades-absolutas">5.1 Unidades absolutas</h1>
+<p>Las unidades absolutas son fijas, y apareceran en pantalla con el tamaño especifico.</p>
+<p>No son recomendables en general porque al variar los tamaños de pantalla se vuelve dificil que la pagina se vea bien. Por ejemplo si tenemos una letra de 9px quiza se vea bien en una pantalla de celular, pero en una pantalla de TV se vera muy chiquita.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Unidad</th>
+<th>Descripcion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>cm</td>
+<td>centimetros</td>
+</tr>
+<tr class="even">
+<td>mm</td>
+<td>milimetros</td>
+</tr>
+<tr class="odd">
+<td>in</td>
+<td>pies (inches) (1in = 96px = 2.54cm)</td>
+</tr>
+<tr class="even">
+<td>px</td>
+<td>pixeles (1px = 1/96th of 1in)</td>
+</tr>
+<tr class="odd">
+<td>pt</td>
+<td>puntos (1pt = 1/72 of 1in)</td>
+</tr>
+<tr class="even">
+<td>pc</td>
+<td>picas (1pc = 12 pt)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="unidades-relativas">5.2 Unidades relativas</h1>
+<p>Las unidades relativas especifican una longitud relativa a otra propiedad de longitud. Este tipo de unidades se veran similar entre diferentes tipos de pantalla.</p>
+<table>
+<colgroup>
+<col style="width: 53%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Unidad</th>
+<th>Descripcion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>em</td>
+<td>Relativo al font-size del elemento (2em significa 2*font-size de la fuente actual)</td>
+</tr>
+<tr class="even">
+<td>%</td>
+<td>Relativo al elemento padre</td>
+</tr>
+<tr class="odd">
+<td>ex</td>
+<td>Relativo a la altura-x de la fuente actual (raramente usado)</td>
+</tr>
+<tr class="even">
+<td>ch</td>
+<td>Relativo a el ancho de “0”</td>
+</tr>
+<tr class="odd">
+<td>rem</td>
+<td>Relativo al font-size del elemento root (raiz)</td>
+</tr>
+<tr class="even">
+<td>vw</td>
+<td>Relativo al 1% de el ancho del viewport</td>
+</tr>
+<tr class="odd">
+<td>vh</td>
+<td>Relativo al 1% del alto del viewport</td>
+</tr>
+<tr class="even">
+<td>vmin</td>
+<td>Relativo al 1% de la dimension mas chica del viewport</td>
+</tr>
+<tr class="odd">
+<td>vmax</td>
+<td>Relativo al 1% de la dimension mas grande del viewport</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Viewport = tamaño de la ventana del navegador</li>
+</ul>
+<blockquote>
+<p>Tip: en general las unidades em y rem son practicas para crear una pagina responsive.</p>
+</blockquote>
+<h1 id="color">6. Color</h1>
+<p>Ya vimos la propiedad <code>color</code>, que sirve para cambiar el color del texto en un elemento en particular.</p>
+<p>Tambien existe la propiedad <code>background-color</code> que sirve para cambiar el color de fondo a nuestros elementos:</p>
+<p>Esta clase CSS pone el color de fondo en azul.</p>
+<pre class="css"><code>.fondo-azul {
+    background-color: blue;
+}</code></pre>
+<p>A continuacion un ejemplo utilizando colores de fondo y colores de texto.</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="YzdZQLe" data-editable="true" data-user="Ignacio-Martin-Citate-G-mez" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/Ignacio-Martin-Citate-G-mez/pen/YzdZQLe"> Untitled</a> by Ignacio Martin Citate Gómez (<a href="https://codepen.io/Ignacio-Martin-Citate-G-mez"><span class="citation" data-cites="Ignacio-Martin-Citate-G-mez">@Ignacio-Martin-Citate-G-mez</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<p>Los valores de color en CSS se pueden escribir en RGB, HEX o algunas predefinidas como <code>red</code>, <code>blue</code>, <code>white</code>.</p>
+<p>Para elegir que color queremos exactamente es recomendable utilizar un selector de colores (color picker)[https://htmlcolorcodes.com/] online y copiar el valor hexadecimal para utilizarlo.</p>
+<p>En el ejemplo anterior es usan valores hexadecimales.</p>
+<h1 id="fuentes-de-texto">7. Fuentes de texto</h1>
+<p>Podemos elegir que familia de fuentes de texto usar utilizando <code>font-family</code> En CSS hay 5 familias de fuentes genericas:</p>
+<ol type="1">
+<li>Serif</li>
+<li>Sans-serif</li>
+<li>Monospace</li>
+<li>Cursive</li>
+<li>Fantasy</li>
+</ol>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="yLojraG" data-editable="true" data-user="web-dot-dev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/web-dot-dev/pen/yLojraG"> Text | font-family</a> by web.dev (<a href="https://codepen.io/web-dot-dev"><span class="citation" data-cites="web-dot-dev">@web-dot-dev</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<blockquote>
+<p>Tambien se pueden elegir fuentes de Google Fonts e importarlas en tu CSS para personalizar la experiencia aun mas.</p>
+</blockquote>
+<p>Se pueden cambiar los estilos de fuentes utilizando <code>font-style</code>:</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="MWvGRjx" data-editable="true" data-user="web-dot-dev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/web-dot-dev/pen/MWvGRjx"> Text | font-style</a> by web.dev (<a href="https://codepen.io/web-dot-dev"><span class="citation" data-cites="web-dot-dev">@web-dot-dev</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<p>Ademas se pueden hacer que las fuentes sean mas “gruesas” o “finas” utilizando la propiedad <code>font-weight</code>.</p>
+<p>Finalmente, podemos cambiar el tamaño de las fuentes utsando la propiedad <code>font-size</code>.</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="eYEroda" data-editable="true" data-user="web-dot-dev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/web-dot-dev/pen/eYEroda"> Text | font-size keywords v2</a> by web.dev (<a href="https://codepen.io/web-dot-dev"><span class="citation" data-cites="web-dot-dev">@web-dot-dev</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<h1 id="flexbox">8. Flexbox</h1>
+<h2 id="la-propiedad-display">8.1 La propiedad display</h2>
+<p>La propiedad <code>display</code> sirve para dos cosas.<br />
+Una de ellas es determinar si la caja (box) a la que se aplica actua como inline o como bloque.</p>
+<pre class="css"><code>.mi-elemento {
+    display: inline;
+}</code></pre>
+<p>Los elementos <strong>inline</strong> se comportan como palabras en una oración. Se ponen uno al lado del otro en la misma linea. Los elementos como <code>&lt;span&gt;</code> y <code>&lt;strong&gt;</code>, que son tipicamente usados para darle estilo a partes del texto dentro de un elemento padre como un <code>&lt;p&gt;</code> (párrafo), son inline por defecto. También preservan los espacios en blanco.</p>
+<p><img src="https://web-dev.imgix.net/image/VbAJIREinuYvovrBzzvEyZOpw5w1/GezxDZXkJgkMevkKg89M.png?auto=format&amp;w=845" /></p>
+<blockquote>
+<p>No se puede setear un ancho o alto (width, height) explicito a los elementos inline. Cualquier margin o padding que se le agregue va a ser ignorado.</p>
+</blockquote>
+<pre class="css"><code>.mi-elemento {
+    display: block;
+}</code></pre>
+<p>Los elementos <code>block</code> no se ponen uno al lado del otro. Se crean en una nueva línea.<br />
+A menos que se modifique por CSS, un elemento block se va a expandir al ancho de la dimensión inline, es decir, todo el ancho de la página.</p>
+<pre class="css"><code>.mi-elemento {
+   display: flex;
+}</code></pre>
+<p>La propiedad <code>display</code> también determina cómo se comportan los elementos hijos del elemento. Por ejemplo, si usamos la <code>display: flex</code> la caja se transforma en una caja a nivel de bloque, y sus hijos en items flex. Lo que permite controlar su alineación, orden y flujo.</p>
+<h2 id="flexbox-en-detalle">8.2 Flexbox en detalle</h2>
+<p>Flexbox es un mecanismo de layout para layouts unidimensionales. Es decir, a lo largo de un solo eje, horizontal o vertical. Por defecto, flexbox alinea los elementos hijos uno al lado del otro, en la dirección inline y los estira (stretch) en la dirección block, para que tengan la misma altura.</p>
+<p class="codepen" data-height="800" data-theme-id="dark" data-default-tab="html,result" data-slug-hash="GRwbGQY" data-editable="true" data-user="Ignacio-Martin-Citate-G-mez" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/Ignacio-Martin-Citate-G-mez/pen/GRwbGQY"> Untitled</a> by Ignacio Martin Citate Gómez (<a href="https://codepen.io/Ignacio-Martin-Citate-G-mez"><span class="citation" data-cites="Ignacio-Martin-Citate-G-mez">@Ignacio-Martin-Citate-G-mez</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<h3 id="dirección-de-los-items">8.2.1 Dirección de los items</h3>
+<p>Para cambiar la dirección en la que se muestran los elementos hijos de un contenedor con <code>display: flex;</code> se utiliza la propiedad <code>flex-direction</code>. Puede tener los siguientes valores:</p>
+<ul>
+<li>row: los items se muestran en fila (horizontal).</li>
+<li>column: los items se muestran en una columna (vertical)</li>
+<li>row-reverse: los items se muestran en fila con el orden inverso.</li>
+<li>column-reverse: los items se muestran en columna con el orden inverso.</li>
+</ul>
+<p class="codepen" data-height="800" data-theme-id="dark" data-default-tab="html,result" data-slug-hash="RwqzJBY" data-editable="true" data-user="Ignacio-Martin-Citate-G-mez" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/Ignacio-Martin-Citate-G-mez/pen/RwqzJBY"> Untitled</a> by Ignacio Martin Citate Gómez (<a href="https://codepen.io/Ignacio-Martin-Citate-G-mez"><span class="citation" data-cites="Ignacio-Martin-Citate-G-mez">@Ignacio-Martin-Citate-G-mez</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<h3 id="alineamiento-de-los-items">8.2.2 Alineamiento de los items</h3>
+<p>Hay dos tipos de propiedades flex para alineamiento, unas orientadas a la distribución del espacio y otras al alineamiento. Las propiedades para distribuir el espacio son:</p>
+<p><code>justify-content</code>: distribuye el espacio en el eje principal. <code>align-content</code>: distribuye el espacio en el eje secundario.</p>
+<p>Las propiedades para alinear son: <code>align-self</code>: alinea un único elemento en el eje secundario. <code>align-items</code>: alinea todos los items en el eje secundario.</p>
+<p>Si estás trabajando en el eje principal las propiedades empiezan con <code>justify-</code>. Las del eje secundario empiezan con <code>align-</code></p>
+<p class="codepen" data-height="800" data-theme-id="dark" data-default-tab="html,result" data-slug-hash="bGgwLgz" data-editable="true" data-user="web-dot-dev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/web-dot-dev/pen/bGgwLgz"> Learn CSS - Flexbox - Justify content</a> by web.dev (<a href="https://codepen.io/web-dot-dev"><span class="citation" data-cites="web-dot-dev">@web-dot-dev</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<p class="codepen" data-height="800" data-theme-id="dark" data-default-tab="html,result" data-slug-hash="poREawo" data-editable="true" data-user="web-dot-dev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/web-dot-dev/pen/poREawo"> Learn CSS - Flexbox - Align content</a> by web.dev (<a href="https://codepen.io/web-dot-dev"><span class="citation" data-cites="web-dot-dev">@web-dot-dev</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+</article>
+<footer class="flex flex-row justify-between p-4 border-t
+    border-stone-400"
+>
+    M. Emilia Moyano, Ignacio M. Citate Gomez
+</footer>
+</body>
+</html>
