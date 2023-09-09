@@ -182,7 +182,7 @@ CSS toman valor de longitud, como por ejemplo `width`, `margin`, `padding`,
 Todas las unidades de longitud se componen de un numero seguido de su unidad, 
 como `10px`, `2em`, etc.
 
-# 5.1 Unidades absolutas
+## 5.1 Unidades absolutas
 
 Las unidades absolutas son fijas, y apareceran en pantalla con el tamaño 
 especifico. 
@@ -201,7 +201,7 @@ TV se vera muy chiquita.
 | pt | puntos (1pt = 1/72 of 1in) |
 | pc | picas (1pc = 12 pt) |
 
-# 5.2 Unidades relativas
+## 5.2 Unidades relativas
 
 Las unidades relativas especifican una longitud relativa a otra propiedad de longitud.
 Este tipo de unidades se veran similar entre diferentes tipos de pantalla.
