@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="../markdown.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark-dimmed.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <meta name="author" content="Desarrollo web" />
+  <meta name="description" content="Clase 7" />
+  <title>Clase 7 - Desarrollo web</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header style="display: flex; flex-direction: row; justify-content: between;
+    padding: 0.5em; border-bottom: solid 1px #a8a29e;"
+>
+    <div style="display: flex; flex-direction: column; gap: 0.5em; background-color: white;
+        opacity: 0.9;"
+    >
+        <span style="font-family: 'source code pro', monospace; color: #2563eb;
+            font-size: 1.5rem; line-height: 2rem;"
+        >
+            &lt;DesarrolloWeb &#47;&gt
+        </span>
+        <span style="font-weight: 400;">
+            &rsaquo; <span style="font-weight: 600;">Clase 7</span>
+        </span>
+    </div>
+</header>
+<article>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">&rsaquo; Indice de contenidos</h2>
+<ul>
+<li><a href="#introduccion-a-javascript">1. Introduccion a JavaScript</a>
+<ul>
+<li><a href="#como-ejecutar-javascript">1.1 Como ejecutar JavaScript</a></li>
+</ul></li>
+<li><a href="#variables">2. Variables</a>
+<ul>
+<li><a href="#declaracion">2.1 Declaracion</a></li>
+<li><a href="#inicializacion">2.2 Inicializacion</a></li>
+<li><a href="#actualizacion">2.3 Actualizacion</a></li>
+</ul></li>
+<li><a href="#condicionales">3. Condicionales</a></li>
+<li><a href="#operaciones-basicas">4. Operaciones basicas</a></li>
+<li><a href="#loops-bucles">5. Loops (bucles)</a>
+<ul>
+<li><a href="#for..of">5.1 For..Of</a></li>
+<li><a href="#for-tradicional">5.2 For tradicional</a></li>
+</ul></li>
+<li><a href="#funciones">6. Funciones</a>
+<ul>
+<li><a href="#parametros">6.1 Parametros</a></li>
+<li><a href="#funciones-por-defecto-y-metodos">6.2 Funciones por defecto y metodos</a></li>
+</ul></li>
+<li><a href="#ejemplo-integrador">7. Ejemplo integrador</a></li>
+</ul>
+</nav>
+<h1 id="introduccion-a-javascript">1. Introduccion a JavaScript</h1>
+<p>JavaScript es un lenguaje de programacion que permite implementar funcionalidades complejas en paginas web. Permite agregar interactividad al sitio.</p>
+<p>Es la tercera capa de las tecnologias web estandar.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript/cake.png"></a></p>
+<p>Como todo lenguaje de programacion, se ejecutaran una serie de instrucciones que se describen en el mismo lenguaje. Como si se tratara de una receta de cocina, los pasos se ejecutan en orden y uno a la vez.</p>
+<blockquote>
+<p>Aclaracion sobre JavaScript y Java: a pesar de su similaridad en los nombres, Java y Javascript no tienen mucho en comun como lenguajes de programacion.</p>
+</blockquote>
+<h2 id="como-ejecutar-javascript">1.1 Como ejecutar JavaScript</h2>
+<p>El encargado de ejecutar JavaScript es el navegador, de la misma forma que se encarga de mostrar la pagina renderizando el HTML. Una forma de hacerlo es incluir nuestro JavaScript en un tag <code>&lt;script&gt;</code> dentro del HTML. Este tag se debe incluir justo antes de cerrar el tag <code>&lt;body&gt;</code> es decir, en la linea antes del <code>&lt;/body&gt;</code>.</p>
+<pre class="html"><code>&lt;script&gt;
+    // aca va nuestro codigo
+&lt;/script&gt;</code></pre>
+<blockquote>
+<p>Deberan abrir la consola del navegador para ver los resultados de los ejemplos que se veran a lo largo de esta clase. F12 para abrir la consola.</p>
+</blockquote>
+<h1 id="variables">2. Variables</h1>
+<p>Una variable es un contenedor para un valor, como un numero que utilizaremos para hacer una suma o un string (cadena de caracteres) que usaremos como parte de una oracion.</p>
+<h2 id="declaracion">2.1 Declaracion</h2>
+<p>Para utilizar una variable primero hay que declararla. Esto significa, darle un nombre a la misma.</p>
+<pre class="js"><code>let miNombre;</code></pre>
+<blockquote>
+<p>En JS cada instruccion termina con ;</p>
+</blockquote>
+<p>Esto declara la variable <code>miNombre</code>, que luego contendra un valor string.</p>
+<p>Tal como esta ahora, no contiene ningun valor, es decir que si queremos utilizarla, tendremos un valor nulo (<code>null</code> o <code>undefined</code>).</p>
+<h2 id="inicializacion">2.2 Inicializacion</h2>
+<p>Una vez declarada, se puede inicializar con un valor, utilizando el signo <code>=</code>.</p>
+<pre class="js"><code>miNombre = &quot;Emi&quot;;</code></pre>
+<p>Comunmente, las variables se inicializan en el mismo momento que se declaran. Esto se puede hacer de la siguiente manera:</p>
+<pre class="js"><code>let miNombre = &quot;Emi&quot;;</code></pre>
+<p>Para imprimir los valores de las variables en la consola. Utilizamos la funcion <code>console.log</code>.</p>
+<pre class="js"><code>let miNombre = &quot;Emi&quot;;
+console.log(miNombre);</code></pre>
+<h2 id="actualizacion">2.3 Actualizacion</h2>
+<p>Una vez que una variable se inicializa con un valor dado, es posible actualizarlo dandole otro valor.</p>
+<pre class="js"><code>let miNombre = &quot;Emi&quot;;
+console.log(miNombre);
+
+miNombre = &quot;Nacho&quot;
+console.log(miNombre);</code></pre>
+<h1 id="condicionales">3. Condicionales</h1>
+<p>Es probable que en algun momento necesitamos tomar decisiones basadas en una condicion. Para esto necesitamos las sentencia <code>if-else</code>.</p>
+<pre class="js"><code>if (condicion) {
+  /* codigo que se ejecuta si es verdadero */
+} else {
+  /* codigo que se ejecuta si es falso */
+}</code></pre>
+<p>Tambien se puede omitir el <code>else</code> y simplemente preguntar si la condicion es verdadera.</p>
+<pre class="js"><code>if (condicion) {
+  /* codigo que se ejecuta si es verdadero */
+} 
+
+/* codigo que se va a ejecutar en cualquier caso */</code></pre>
+<p>Veamos un ejemplo sencillo:</p>
+<pre class="js"><code>let imprimirEmi = true;
+
+if (imprimirEmi == true) {
+    console.log(&quot;Emi&quot;);
+} else {
+    console.log(&quot;Nacho&quot;);
+}</code></pre>
+<h1 id="operaciones-basicas">4. Operaciones basicas</h1>
+<p>Como cualquier lenguaje de programacion se pueden hacer varias operaciones aritmeticas (suma, resta, multiplicacion, division) y logicas (AND, OR, NOT).</p>
+<pre class="js"><code>let x = 10;
+let y = 2;
+
+console.log(x + y)
+console.log(x - y)
+console.log(x * y)
+console.log(x / y)</code></pre>
+<p>Algunas operaciones logicas:</p>
+<pre class="js"><code>// and
+console.log(true &amp;&amp; false);
+// or
+console.log(true || false);
+// not
+console.log(!true);
+// es distinto?
+console.log(1 != 2);
+// es igual? 
+console.log(1 == 2);
+// 2 + 0 es igual que 3 - 1?
+console.log(2+0 == 3-1);
+// el string juan es igual al string juan?
+console.log(&quot;juan&quot; == &quot;jorge&quot;)
+// juan es igual a juan?
+console.log(&quot;juan&quot; == &quot;juan&quot;)</code></pre>
+<h1 id="loops-bucles">5. Loops (bucles)</h1>
+<p>A veces tenemos colecciones de elementos (listas) para las que queremos realizar determinada accion en cada elemento.</p>
+<p>Un tipo de coleccion es el <code>Array</code> de JavaScript. Pero tambien existen otras como <code>Set</code> y <code>Map</code>.</p>
+<h2 id="for..of">5.1 For..Of</h2>
+<p>En JavaScript es posible iterar en una lista utilizando un tipo de loop llamado <code>for..of</code>.</p>
+<pre class="js"><code>let colores = [&quot;Azul&quot;, &quot;Negro&quot;, &quot;Verde&quot;, &quot;Rojo&quot;, &quot;Violeta&quot;, &quot;Rosa&quot;, &quot;Amarillo&quot;];
+
+for (const color of colores) {
+    console.log(color);
+}</code></pre>
+<h2 id="for-tradicional">5.2 For tradicional</h2>
+<p>Tambien podemos iterar de la forma tradicional.</p>
+<pre class="js"><code>let colores = [&quot;Azul&quot;, &quot;Negro&quot;, &quot;Verde&quot;, &quot;Rojo&quot;, &quot;Violeta&quot;, &quot;Rosa&quot;, &quot;Amarillo&quot;];
+
+for (let i = 0; i &lt; colores.length; i++) {
+    let color = colores[i];
+    console.log(color);
+}</code></pre>
+<h1 id="funciones">6. Funciones</h1>
+<p>Las funciones son una forma de reutilizar nuestro codigo, y luego poder ‘invocarlo’ donde lo necesitemos.</p>
+<p>Ejemplo de definicion de una funcion:</p>
+<pre class="js"><code>function saludar() {
+    console.log(&quot;Hola!&quot;);
+}</code></pre>
+<p>Como se ejecuta:</p>
+<pre class="js"><code>saludar();</code></pre>
+<p>Es importante declarar la funcion antes de llamarla:</p>
+<pre class="js"><code>function saludar() {
+    console.log(&quot;hola!&quot;);
+}
+
+saludar();</code></pre>
+<h2 id="parametros">6.1 Parametros</h2>
+<p>Tambien podemos definir funciones que utilicen parametros (es decir, valores necesarios para su ejecucion).</p>
+<pre class="js"><code>function saludarA(nombre) {
+    console.log(&quot;Hola &quot; + nombre + &quot;!&quot;);
+}
+
+saludarA(&quot;Chino&quot;);</code></pre>
+<h2 id="funciones-por-defecto-y-metodos">6.2 Funciones por defecto y metodos</h2>
+<p>Muchas de las funciones que vamos a utilizar ya estan definidas en JS.</p>
+<p>Por ejemplo, algunas que manipulen strings o interactuen con el DOM (que veremos en la proxima clase).</p>
+<pre class="js"><code>const myText = &quot;Esto es color azul&quot;;
+const newString = myText.replace(&quot;azul&quot;, &quot;verde&quot;);
+console.log(newString);</code></pre>
+<blockquote>
+<p>Podemos utilizar const en lugar de let, para declarar variables que no van a cambiar de valor.</p>
+</blockquote>
+<h1 id="ejemplo-integrador">7. Ejemplo integrador</h1>
+<p>Cuantas veces podremos sacar ‘cara’ si tiramos una moneda 10 veces?</p>
+<pre class="js"><code>let cantCara = 0;
+
+for (let i = 0; i &lt; 10; i++) {
+    const randomNumber = Math.random(); // numero aleatorio entre 0 y 1
+
+    console.log(`intento ${i+1}...`);
+
+    if (randomNumber &gt; 0.5) {
+        console.log(&quot;cara&quot;);
+        cantCara += 1;
+    } else {
+        console.log(&quot;cruz&quot;);
+    }
+}
+
+console.log(`Sacaste cara ${cantCara} veces.`);</code></pre>
+<blockquote>
+<p>Ejecuta el codigo varias veces haciendo F5 a tu pagina para ver como cambian los valores.</p>
+</blockquote>
+</article>
+<footer class="flex flex-row justify-between p-4 border-t
+    border-stone-400"
+>
+    M. Emilia Moyano, Ignacio M. Citate Gomez
+</footer>
+</body>
+</html>
