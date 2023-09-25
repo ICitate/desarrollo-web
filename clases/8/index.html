@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="../markdown.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark-dimmed.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <meta name="author" content="Desarrollo web" />
+  <meta name="description" content="Clase 8" />
+  <title>Clase 8 - Desarrollo web</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header style="display: flex; flex-direction: row; justify-content: between;
+    padding: 0.5em; border-bottom: solid 1px #a8a29e;"
+>
+    <div style="display: flex; flex-direction: column; gap: 0.5em; background-color: white;
+        opacity: 0.9;"
+    >
+        <span style="font-family: 'source code pro', monospace; color: #2563eb;
+            font-size: 1.5rem; line-height: 2rem;"
+        >
+            &lt;DesarrolloWeb &#47;&gt
+        </span>
+        <span style="font-weight: 400;">
+            &rsaquo; <span style="font-weight: 600;">Clase 8</span>
+        </span>
+    </div>
+</header>
+<article>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">&rsaquo; Indice de contenidos</h2>
+<ul>
+<li><a href="#dom-document-object-model">1. DOM (Document Object Model)</a>
+<ul>
+<li><a href="#ejemplos">1.1 Ejemplos</a>
+<ul>
+<li><a href="#cambiando-el-contenido-de-texto">1.1.1 Cambiando el contenido de texto</a></li>
+<li><a href="#agregando-un-elemento-hijo">1.1.2 Agregando un elemento hijo</a></li>
+<li><a href="#cambiando-una-pagina-entre-modo-claro-y-oscuro">1.1.3 Cambiando una pagina entre modo claro y oscuro</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#eventos">2. Eventos</a>
+<ul>
+<li><a href="#manejando-un-evento-de-click">2.1 Manejando un evento de click</a></li>
+<li><a href="#propiedades-extra-en-los-objetos-evento">2.2 Propiedades extra en los objetos evento</a></li>
+<li><a href="#evitando-el-comportamiento-por-defecto">2.3 Evitando el comportamiento por defecto</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="dom-document-object-model">1. DOM (Document Object Model)</h1>
+<p>El DOM es una interfaz de programacion para documentos web. Sirve para representar la pagina de modo que los programas puedan modificar su estructura, estilo y contenido. El DOM representa el documento como nodos y objetos. De esta forma, los lenguajes de programacion (como JavaScript) pueden interactuar con la pagina.</p>
+<p>Por ejemplo, el DOM especifica que el metodo <code>querySelectorAll</code> en este codigo debe retornar una lista de todos los elementos <code>&lt;p&gt;</code> del documento.</p>
+<pre class="js"><code>const parrafos = document.querySelectorAll(&quot;p&quot;);
+// parrafos[0] es el primer elemento &lt;p&gt;
+// parrafos[1] es el segundo elemento &lt;p&gt;, etc.
+console.log(parrafos[0].nodeName)</code></pre>
+<p>Todas las propiedades, metodos y eventos disponibles para manipular en una pagina web se organizan en objetos. Por ejemplo, el objeto <code>document</code> representa al documento en si mismo.</p>
+<p>Los objetos principales a manipular en el DOM son los objetos <code>document</code> y <code>window</code>. El objeto <code>window</code> representa al navegador, y el objeto <code>document</code> representa a la raiz (root) del documento.</p>
+<p>A continuacion se listan las interfaces mas comunmente utilizadas en paginas web.</p>
+<ul>
+<li>document.querySelector()</li>
+<li>document.querySelectorAll()</li>
+<li>document.createElement()</li>
+<li>Element.innerHTML</li>
+<li>Element.setAttribute()</li>
+<li>Element.getAttribute()</li>
+<li>EventTarget.addEventListener()</li>
+<li>HTMLElement.style</li>
+<li>Node.appendChild()</li>
+<li>window.onload</li>
+<li>window.scrollTo()</li>
+</ul>
+<h2 id="ejemplos">1.1 Ejemplos</h2>
+<h3 id="cambiando-el-contenido-de-texto">1.1.1 Cambiando el contenido de texto</h3>
+<p>Este ejemplo usa un <code>&lt;div&gt;</code> que contiene un <code>&lt;textarea&gt;</code> y dos <code>&lt;button&gt;</code>. Cuando el usuario clickea en el primer boton agregamos un texto en el <code>&lt;textarea&gt;</code>, y si clickeamos el otro boton borramos el texto. Vamos a utilizar:</p>
+<ul>
+<li>Document.querySelector() para acceder al elemento <code>&lt;textarea&gt;</code> y el boton.</li>
+<li>EventTarget.addEventListener() para “escuchar” los clicks al boton.</li>
+<li>Node.textContent para agregar y quitar el texto.</li>
+</ul>
+<pre class="html"><code>&lt;div class=&quot;container&quot;&gt;
+  &lt;textarea class=&quot;texto&quot;&gt;&lt;/textarea&gt;
+  &lt;button id=&quot;set-text&quot; type=&quot;button&quot;&gt;Agregar texto&lt;/button&gt;
+  &lt;button id=&quot;clear-text&quot; type=&quot;button&quot;&gt;Quitar texto&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+<pre class="css"><code>.container {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+button {
+  width: 200px;
+}</code></pre>
+<pre class="js"><code>const story = document.body.querySelector(&quot;.texto&quot;);
+
+const setText = document.body.querySelector(&quot;#set-text&quot;);
+setText.addEventListener(&quot;click&quot;, () =&gt; {
+  story.textContent = &quot;Este es un texto de ejemplo que se agrega con JS&quot;;
+});
+
+const clearText = document.body.querySelector(&quot;#clear-text&quot;);
+clearText.addEventListener(&quot;click&quot;, () =&gt; {
+  story.textContent = &quot;&quot;;
+});</code></pre>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="zYyWGMv" data-editable="true" data-user="Ignacio-Martin-Citate-G-mez" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/Ignacio-Martin-Citate-G-mez/pen/zYyWGMv"> DOM text manipulation</a> by Ignacio Martin Citate Gómez (<a href="https://codepen.io/Ignacio-Martin-Citate-G-mez"><span class="citation" data-cites="Ignacio-Martin-Citate-G-mez">@Ignacio-Martin-Citate-G-mez</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<h3 id="agregando-un-elemento-hijo">1.1.2 Agregando un elemento hijo</h3>
+<p>Este ejemplo usa un <code>&lt;div&gt;</code> que contiene otro <code>&lt;div&gt;</code> y dos <code>&lt;button&gt;</code>. Cuando el usuario clickea en el primer boton creamos un nuevo elemento y lo agregamos como hijo del <code>&lt;div&gt;</code>. Cuando el usuario clickea el segundo boton borramos el elemento hijo. Vamos a usar:</p>
+<ul>
+<li>Document.querySelector para acceder a los elementos div y button.</li>
+<li>EventTarget.addEventListener() para escuchar los clicks de los botones.</li>
+<li>Document.createElement para crear un elemento.</li>
+<li>Node.appendChild() para agregar al hijo.</li>
+<li>Node.removeChild() para borrar al hijo.</li>
+</ul>
+<p><strong>HTML</strong></p>
+<pre class="html"><code>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;parent&quot;&gt;parent&lt;/div&gt;
+  &lt;button id=&quot;add-child&quot; type=&quot;button&quot;&gt;agregar un hijo&lt;/button&gt;
+  &lt;button id=&quot;remove-child&quot; type=&quot;button&quot;&gt;borrar el hijo&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+<p><strong>CSS</strong></p>
+<pre class="css"><code>.container {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+button {
+  width: 100px;
+}
+
+div.parent {
+  border: 1px solid black;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+}
+
+div.child {
+  border: 1px solid red;
+  margin: 10px;
+  padding: 5px;
+  width: 80px;
+  height: 60px;
+  box-sizing: border-box;
+}</code></pre>
+<p><strong>JS</strong></p>
+<pre class="js"><code>const parent = document.body.querySelector(&quot;.parent&quot;);
+
+const addChild = document.body.querySelector(&quot;#add-child&quot;);
+addChild.addEventListener(&quot;click&quot;, () =&gt; {
+  // Solo agregamos al hijo si no tenemos uno
+  if (parent.childNodes.length &gt; 1) {
+    return;
+  }
+  const child = document.createElement(&quot;div&quot;);
+  child.classList.add(&quot;child&quot;);
+  child.textContent = &quot;child&quot;;
+  parent.appendChild(child);
+});
+
+const removeChild = document.body.querySelector(&quot;#remove-child&quot;);
+removeChild.addEventListener(&quot;click&quot;, () =&gt; {
+  const child = document.body.querySelector(&quot;.child&quot;);
+  parent.removeChild(child);
+});</code></pre>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="abPYOPN" data-editable="true" data-user="Ignacio-Martin-Citate-G-mez" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/Ignacio-Martin-Citate-G-mez/pen/abPYOPN"> DOM Manipulation 2</a> by Ignacio Martin Citate Gómez (<a href="https://codepen.io/Ignacio-Martin-Citate-G-mez"><span class="citation" data-cites="Ignacio-Martin-Citate-G-mez">@Ignacio-Martin-Citate-G-mez</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<h3 id="cambiando-una-pagina-entre-modo-claro-y-oscuro">1.1.3 Cambiando una pagina entre modo claro y oscuro</h3>
+<p>Este ejemplo muestra una pagina simple, donde los elementos ademas de sus clases de estilo normal, tienen dos clases llamadas <code>.light</code> y <code>.dark</code>, estas clases poseen los estilos correspondientes al modo claro y oscuro.</p>
+<p>La estrategia es obtener todos los elementos con clase light y cambiarlas a dark cuando se presione el boton de cambio de modo, y viceversa. Vamos a usar:</p>
+<ul>
+<li>document.getElementById para seleccionar el button que cambia de modo.</li>
+<li>Document.querySelectorAll para buscar a todos los elementos con clase .light o .dark respectivamente</li>
+<li>EventTarget.addEventListener() para escuchar los clicks de los botones.</li>
+<li>Node.textContent para cambiar el contenido del texto</li>
+<li>classList para obtener la lista de clases CSS de cada elemento</li>
+<li>classList.replace() para reemplazar una clase por otra</li>
+</ul>
+<pre class="html"><code>&lt;div id=&quot;container&quot; class=&quot;light&quot;&gt;
+  &lt;h1&gt;
+    Ejemplo
+  &lt;/h1&gt;
+  &lt;p&gt;
+  Una pagina que 
+  cambia entre modo 
+  claro y oscuro
+  &lt;/p&gt;
+  &lt;button id=&quot;mode-btn&quot; class=&quot;btn light&quot;&gt;
+    Modo oscuro
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+<pre class="css"><code>body {
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+#container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.light {
+  background: white;
+  color: #262626;
+}
+
+.dark {
+  background: #262626;
+  color: #fafafa;
+}
+
+.btn {
+  padding: 1em;
+  border-radius: 0.5em;
+}</code></pre>
+<pre class="js"><code>const button = document.getElementById(&quot;mode-btn&quot;);
+
+button.addEventListener(&quot;click&quot;, () =&gt; {
+    // todos los elementos con clase .light
+    const light = document.querySelectorAll(&quot;.light&quot;);
+    if (light.length &gt; 0) {
+        // cambiamos a todos los que tengan clase light a dark
+        for (let i = 0; i &lt; light.length; i++) {
+            light[i].classList.replace(&quot;light&quot;, &quot;dark&quot;);
+        }
+        // cambiamos el texto del boton
+        button.textContent = &quot;Modo claro&quot;;
+    } else {
+        // lo mismo pero de dark a light
+        const dark = document.querySelectorAll(&quot;.dark&quot;);
+        for (let i = 0; i &lt; dark.length; i++) {
+            dark[i].classList.replace(&quot;dark&quot;, &quot;light&quot;);
+        }
+        button.textContent = &quot;Modo oscuro&quot;;
+    }
+});</code></pre>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="rNodVPV" data-editable="true" data-user="Ignacio-Martin-Citate-G-mez" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/Ignacio-Martin-Citate-G-mez/pen/rNodVPV"> Untitled</a> by Ignacio Martin Citate Gómez (<a href="https://codepen.io/Ignacio-Martin-Citate-G-mez"><span class="citation" data-cites="Ignacio-Martin-Citate-G-mez">@Ignacio-Martin-Citate-G-mez</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<blockquote>
+<p>Hay mas formas de lograr este efecto de cambio de modo oscuro y claro entre las paginas. Esta es una solucion posible, pero invitamos al lector a explorar distintas alternativas.</p>
+</blockquote>
+<h1 id="eventos">2. Eventos</h1>
+<p>Los eventos son cosas que suceden en el sistema que estás programando. El sistema se encarga de producir una señal de cierto tipo cuando un evento ocurre, y proporciona un mecanismo para que una acción se lleve a cabo (ejecutar código) de forma automática cuando el evento ocurra. Los eventos se lanzan dentro de la ventana del navegador y usualmente están asociados a un elemento en específico dentro de dicha ventana. Esto puede ser un solo elemento, un grupo de elementos, el documento HTML cargado la pestaña actual, o la ventana del navegador en su totalidad. Existen distintos tipos de eventos que pueden ocurrir.</p>
+<p>Por ejemplo:</p>
+<ul>
+<li>El usuario selecciona, hace clic o pasa el ratón por encima de cierto elemento.</li>
+<li>El usuario presiona una tecla del teclado.</li>
+<li>El usuario redimensiona o cierra la ventana del navegador.</li>
+<li>Una página web terminó de cargarse.</li>
+<li>Un formulario fue enviado.</li>
+<li>Un vídeo se reproduce, se pausa o termina.</li>
+<li>Ocurrió un error.</li>
+</ul>
+<p>Para ver todos los eventos que existen recomendamos la <a href="https://developer.mozilla.org/es/docs/Web/Events">referencia de MDN</a>.</p>
+<p>Para reaccionar a un evento, podes asociarle un manejador de eventos. Esto es un bloque de código (normalmente una función de JavaScript que como programador creas) que se ejecuta cuando el evento ocurre. Cuando uno de estos bloques de código se configura para ejecutarse en respuesta de un evento, decimos que estamos registrando un manejador de eventos.</p>
+<h2 id="manejando-un-evento-de-click">2.1 Manejando un evento de click</h2>
+<p>En el siguiente ejemplo, tenemos un único elemento <code>&lt;button&gt;</code> en la página:</p>
+<pre class="html"><code>&lt;button&gt;Cambiar el color&lt;/button&gt;</code></pre>
+<p>Ahora tenemos algo de JavaScript. Veremos esto más a detalle en la siguiente sección pero, por ahora, nos basta decir que: agrega un manejador de evento al evento “click” del botón, y el manejador reacciona al evento estableciendo un color de fondo aleatorio en la página:</p>
+<pre class="js"><code>const btn = document.querySelector(&quot;button&quot;);
+
+function random(number) {
+  return Math.floor(Math.random() * (number + 1));
+}
+
+btn.addEventListener(&quot;click&quot;, () =&gt; {
+  const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+  document.body.style.backgroundColor = rndCol;
+});</code></pre>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="OJrvVKo" data-editable="true" data-user="Ignacio-Martin-Citate-G-mez" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/Ignacio-Martin-Citate-G-mez/pen/OJrvVKo"> colores random</a> by Ignacio Martin Citate Gómez (<a href="https://codepen.io/Ignacio-Martin-Citate-G-mez"><span class="citation" data-cites="Ignacio-Martin-Citate-G-mez">@Ignacio-Martin-Citate-G-mez</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<h2 id="propiedades-extra-en-los-objetos-evento">2.2 Propiedades extra en los objetos evento</h2>
+<p>La mayoría de objetos eventos tienen un conjunto estándar de propiedades y métodos disponibles en el objeto evento; visita la referencia del objeto Event para una lista completa.</p>
+<p>Algunos objetos evento agregan propiedades extra que son relevantes para un tipo de evento en particular. Por ejemplo, el evento keydown se lanza cuando el usuario presiona una tecla. Su objeto evento es un KeyboardEvent, el cual es un objeto Event especializado con una propiedad key que nos indica la tecla que fue presionada.</p>
+<pre class="html"><code>&lt;input id=&quot;textBox&quot; type=&quot;text&quot; /&gt;
+&lt;div id=&quot;output&quot;&gt;&lt;/div&gt;</code></pre>
+<pre class="js"><code>const textBox = document.querySelector(&quot;#textBox&quot;);
+const output = document.querySelector(&quot;#output&quot;);
+textBox.addEventListener(
+  &quot;keydown&quot;,
+  (event) =&gt; (output.textContent = `Presionaste &quot;${event.key}&quot;.`),
+);</code></pre>
+<p>Intenta escribir en la caja de texto y mira el resultado:</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="zYyWvOB" data-editable="true" data-user="Ignacio-Martin-Citate-G-mez" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/Ignacio-Martin-Citate-G-mez/pen/zYyWvOB"> Untitled</a> by Ignacio Martin Citate Gómez (<a href="https://codepen.io/Ignacio-Martin-Citate-G-mez"><span class="citation" data-cites="Ignacio-Martin-Citate-G-mez">@Ignacio-Martin-Citate-G-mez</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<h2 id="evitando-el-comportamiento-por-defecto">2.3 Evitando el comportamiento por defecto</h2>
+<p>En algunas ocasiones, te encontrarás en una situación donde quieres evitar que un evento realice su acción por defecto. El escenario más común es el de un formulario web, por ejemplo, un formulario personalizado para un registro. Cuando llenas todos los campos y haces clic en el botón para enviar, el comportamiento normal es que la información sea enviada a un servidor para que sea procesada, mientras que el navegador se redirecciona a una página donde se muestra un mensaje de “envío exitoso” (o a la misma página si no se especifica otra).</p>
+<p>El problema viene cuando el usuario no ha introducido sus datos correctamente. Como desarrollador, quieres evitar que la información sea enviada al servidor y, en su lugar, mostrar un mensaje de error que señale cuáles son los problemas y qué se necesita para corregirlos. Algunos navegadores tienen soporte para características de validación automática de formularios, pero tomando en cuenta que muchos otros no, se te recomienda que no confies en estos mecanismos e implementes tus propias pruebas de validación. Veamos un ejemplo.</p>
+<p>Primero, un formulario HTML simple que requiere que introduzcas tu nombre y apellido:</p>
+<pre class="html"><code>&lt;form&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;fname&quot;&gt;Nombre: &lt;/label&gt;
+    &lt;input id=&quot;fname&quot; type=&quot;text&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;lname&quot;&gt;Apellido: &lt;/label&gt;
+    &lt;input id=&quot;lname&quot; type=&quot;text&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input id=&quot;submit&quot; type=&quot;submit&quot; /&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+&lt;p&gt;&lt;/p&gt;</code></pre>
+<p>Ahora un poco de JavaScript. Aquí vamos a implementar una simple prueba dentro del manejador del evento submit (el evento submit es lanzado en un formulario cuando este se envía) que determina si los campos de texto están vacíos o no. En caso de que lo estén, llamamos al método preventDefault() del objeto evento, el cual detiene el envío del formulario y muestra un mensaje de error en el párrafo debajo de nuestro formulario para hacerle saber al usuario cuál es el problema:</p>
+<pre class="js"><code>const form = document.querySelector(&quot;form&quot;);
+const fname = document.getElementById(&quot;fname&quot;);
+const lname = document.getElementById(&quot;lname&quot;);
+const para = document.querySelector(&quot;p&quot;);
+
+form.addEventListener(&quot;submit&quot;, (e) =&gt; {
+  if (fname.value === &quot;&quot; || lname.value === &quot;&quot;) {
+    e.preventDefault();
+    para.textContent = &quot;¡Necesitas completar ambos campos!&quot;;
+  }
+});</code></pre>
+<p>Obviamente esta es una validación bastante débil, esto no detendría al usuario de, por ejemplo, llenar los campos del formulario con espacios en blanco o números, pero, es suficiente para los propósitos de nuestro ejemplo. El resultado es el siguiente:</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="NWeYGKJ" data-editable="true" data-user="Ignacio-Martin-Citate-G-mez" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<span>See the Pen <a href="https://codepen.io/Ignacio-Martin-Citate-G-mez/pen/NWeYGKJ"> Validacion basica</a> by Ignacio Martin Citate Gómez (<a href="https://codepen.io/Ignacio-Martin-Citate-G-mez"><span class="citation" data-cites="Ignacio-Martin-Citate-G-mez">@Ignacio-Martin-Citate-G-mez</span></a>) on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<blockquote>
+<p>Cabe aclarar que para asegurarnos de que un usuario no deje un campo vacio es mejor utilizar el atributo de HTML required en lugar de validarlo por JS, pero a efectos de ejemplificar utilizamos este caso.</p>
+</blockquote>
+</article>
+<footer class="flex flex-row justify-between p-4 border-t
+    border-stone-400"
+>
+    M. Emilia Moyano, Ignacio M. Citate Gomez
+</footer>
+</body>
+</html>
