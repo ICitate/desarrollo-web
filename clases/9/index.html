@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="../markdown.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark-dimmed.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <meta name="author" content="Desarrollo web" />
+  <meta name="description" content="Clase 9" />
+  <title>Clase 9 - Desarrollo web</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header style="display: flex; flex-direction: row; justify-content: between;
+    padding: 0.5em; border-bottom: solid 1px #a8a29e;"
+>
+    <div style="display: flex; flex-direction: column; gap: 0.5em; background-color: white;
+        opacity: 0.9;"
+    >
+        <span style="font-family: 'source code pro', monospace; color: #2563eb;
+            font-size: 1.5rem; line-height: 2rem;"
+        >
+            &lt;DesarrolloWeb &#47;&gt
+        </span>
+        <span style="font-weight: 400;">
+            &rsaquo; <span style="font-weight: 600;">Clase 9</span>
+        </span>
+    </div>
+</header>
+<article>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">&rsaquo; Indice de contenidos</h2>
+<ul>
+<li><a href="#javascript-asincrónico">1. JavaScript asincrónico</a>
+<ul>
+<li><a href="#programación-sincrónica">1.1 Programación sincrónica</a>
+<ul>
+<li><a href="#función-sincrónica-de-larga-duración">1.1.1 Función sincrónica de larga duración</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#event-handlers-manejadores-de-eventos">2. Event Handlers (Manejadores de eventos)</a></li>
+<li><a href="#callbacks-devoluciones-de-llamda">3. CallBacks (devoluciones de llamda)</a></li>
+<li><a href="#promises-promesas">4. Promises (promesas)</a></li>
+</ul>
+</nav>
+<h1 id="javascript-asincrónico">1. JavaScript asincrónico</h1>
+<p>La programación asincrónica es una técnica que permite a los programas inicializar una potencial tarea de larga duración y poder seguir respondiendo a otros eventos mientras la tarea se está ejecutando, en vez de tener que esperar a que esta finalice su ejecución. Una vez finalizada la ejecución de la tarea, el programa muestra los resultados.</p>
+<p>Muchas funciones que proporciona el navegador pueden tomar mucho tiempo en ejecutarse, y por ello, son asincrónicas.</p>
+<p>Por ejemplo, realizar un petición HTTP <code>(HTTP requests)</code> utilizando <code>fetch()</code>.</p>
+<h2 id="programación-sincrónica">1.1 Programación sincrónica</h2>
+<p>En este tipo de programación, el navegador ejecutará secuancialmente el código, línea por línea, en el orden que nosotros lo hayamos escrito. El navegador esperará que la línea anterior haya terminado su ejecución para continuar con la siguiente. Tiene que hacer esto porque cada línea depende del trabajo realizado en las líneas precedentes.</p>
+<blockquote>
+<p>Aunque utilicemos funciones auxiliares, la programación sigue siendo síncrona.</p>
+</blockquote>
+<p>Por ejemplo:</p>
+<pre class="js"><code>function hello(nombre){
+  return `Hola, mi nombre es ${nombre}!`;
+}
+
+const nombre = &quot;Emilia&quot;;
+const saludar = hello(nombre);
+console.log(saludar);
+// &quot;Hola, mi nombre es Emilia&quot;
+</code></pre>
+<h3 id="función-sincrónica-de-larga-duración">1.1.1 Función sincrónica de larga duración</h3>
+<p>Cuando tenemos una función que tarda mucho tiempo en terminar su ejecución, vamos a a ver que nuestro programa no responde en lo absoluto.</p>
+<p>Para poder solucionar este problema, necesitamos buscar una forma de que nuestro programa:</p>
+<ol type="1">
+<li>Inicie una operación de larga duración llamando a una función.</li>
+<li>Haga que esa función inicie la operación y regrese inmediatamente, de manera que nuestro programa pueda seguir respondiendo a otros eventos.</li>
+<li>Notifique el resultado de la operación cuando se complete.</li>
+</ol>
+<p>Eso es precisamente lo que pueden hacer las funciones asíncronas.</p>
+<h1 id="event-handlers-manejadores-de-eventos">2. Event Handlers (Manejadores de eventos)</h1>
+<p>Los Event Handlers son una forma de programación asincrónica. Proporciona una función que será llamada cuando ocurra un evento.</p>
+<p>La API <a href="https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest">XMLHttpRequest</a> permite hacer peticiones HTTP a un servidor remoto utilizando JavaScript. Como este proceso pueden llevar mucho tiempo, esta es una API asíncrona, y obtiene una notificación sobre el prograso y eventual finalización del request adjuntando event listeners al objeto <code>XMLHttpRequest</code></p>
+<h1 id="callbacks-devoluciones-de-llamda">3. CallBacks (devoluciones de llamda)</h1>
+<p>Un callback es una función que se pasa hacia otra función, con la expectativa de que el callback sea llamado en el momento apropiado.</p>
+<p>El código basado en callbacks puede volverse complicado de entender cuando el propio callback debe llamar a otra funciones que aceptan un callback.Esta es una situación común si necesitas realizar alguna operación que se descompone en una serie de funciones asíncronas.</p>
+<blockquote>
+<p>Un event handler es un tipo particular de callback.</p>
+</blockquote>
+<p>La mayoría de las APIs asíncronas modernas no utilizan callbacks. En su lugar, la base de este tipo de programación en JavaScript es la Promise.</p>
+<h1 id="promises-promesas">4. Promises (promesas)</h1>
+<p>Una Promise es un obtejo retornado por una función asincrónica, y representa el estado actual de la operación. En el momento que la Promise es retornada al caller (llamador), la operación generalmente aún no ha finalizado, pero el objeto Promise proporciona métodos para manejar el eventual éxito o fracaso de la operación.</p>
+<p>Con una API basada en Promises, la función asincrónica inicia la operación y devuelve un objeto Promise. Podemos agregarle manejadores (handlers) a este objeto, los cuales se ejecutarán cuando la operación hay tenido éxito o haya fallado.</p>
+</article>
+<footer class="flex flex-row justify-between p-4 border-t
+    border-stone-400"
+>
+    M. Emilia Moyano, Ignacio M. Citate Gomez
+</footer>
+</body>
+</html>
