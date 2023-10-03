@@ -18,7 +18,7 @@ Por ejemplo, realizar un petición HTTP `(HTTP requests)` utilizando `fetch()`.
 
 ## 1.1 Programación sincrónica
 
-En este tipo de programación, el navegador ejecutará secuancialmente el código, línea por línea,
+En este tipo de programación, el navegador ejecutará secuencialmente el código, línea por línea,
 en el orden que nosotros lo hayamos escrito. El navegador esperará que la línea
 anterior haya terminado su ejecución para continuar con la siguiente.
 Tiene que hacer esto porque cada línea depende del trabajo realizado en las líneas precedentes.
@@ -80,21 +80,21 @@ la base de este tipo de programación en JavaScript es la Promise.
 
 # 4. Promises (promesas)
 
-Una Promise es un obtejo retornado por una función asincrónica, y representa el estado
+Una Promise es un objeto retornado por una función asincrónica, y representa el estado
 actual de la operación. En el momento que la Promise es retornada al caller (llamador), 
 la operación generalmente aún no ha finalizado, pero el objeto Promise proporciona 
 métodos para manejar el eventual éxito o fracaso de la operación.
 
 Con una API basada en Promises, la función asincrónica inicia la operación y devuelve
 un objeto Promise. Podemos agregarle manejadores (handlers) a este objeto, los cuales
-se ejecutarán cuando la operación hay tenido éxito o haya fallado.
+se ejecutarán cuando la operación haya tenido éxito o haya fallado.
 
-## 4.1 fetch() API
+## 4.1 fetch API
 
 En una HTTP request, enviamos un mensaje de solicitud a un servidor remoto, y este 
 nos devuelve una respuesta.
 En este caso, le haremos un request al servidor para poder obtener un 
-archivo JSON. [API con datos sobre las universidades de Argentina]("http://universities.hipolabs.com/search?country=Argentina")
+archivo JSON. [API con datos sobre las universidades de Argentina]("http://universities.hipolabs.com/search?country=Argentina").
 
 ```js
 async function fetchUniversidades() { 
@@ -104,8 +104,21 @@ async function fetchUniversidades() {
 const response = await fetchUniversidades();
 const universidades = await response.json();
 
+console.log("Universidades en Argentina:");
 console.log(universidades);
 ```
 
+> Notese que la request HTTP por defecto que usa fetch es un GET.
 
+Lo que hacemos en este ejemplo de codigo es lo siguiente:
 
+Definimos la funcion fetchUniversidades y decimos que es asincrona con la palabra clave 
+`async`. Esta funcion se encarga de hacer la solicitud HTTP GET a la URL mencionada anteriormente.
+
+La palabra clave `await` indica que espera la respuesta de una funcion asincrona. (`fetch` es una 
+funcion asincrona).
+
+Luego llamamos a esta funcion y la guardamos en la variable `response`.
+Una vez hecho esto llamamos al metodo `json()` de la response (que tambien es asincrono por lo cual se 
+hace un `await`), este metodo se encarga de convertir el JSON retornado por la API en un objeto JS.
+Finalmente, imprimimos este objeto en la consola.
