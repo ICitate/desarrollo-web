@@ -6,7 +6,6 @@ author-meta: Desarrollo web
 
 # 1. JavaScript asincrónico
 
-
 La programación asincrónica es una técnica que permite a los programas inicializar
 una potencial tarea de larga duración y poder seguir respondiendo a otros eventos mientras la 
 tarea se está ejecutando, en vez de tener que esperar a que esta finalice su ejecución. 
@@ -90,8 +89,23 @@ Con una API basada en Promises, la función asincrónica inicia la operación y 
 un objeto Promise. Podemos agregarle manejadores (handlers) a este objeto, los cuales
 se ejecutarán cuando la operación hay tenido éxito o haya fallado.
 
-
-
 ## 4.1 fetch() API
+
+En una HTTP request, enviamos un mensaje de solicitud a un servidor remoto, y este 
+nos devuelve una respuesta.
+En este caso, le haremos un request al servidor para poder obtener un 
+archivo JSON. [API con datos sobre las universidades de Argentina]("http://universities.hipolabs.com/search?country=Argentina")
+
+```js
+async function fetchUniversidades() { 
+    return await fetch("http://universities.hipolabs.com/search?country=Argentina");
+}
+
+const response = await fetchUniversidades();
+const universidades = await response.json();
+
+console.log(universidades);
+```
+
 
 
